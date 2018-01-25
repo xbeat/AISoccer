@@ -30,7 +30,7 @@ class GlobalPlayerState extends State {
 
     OnMessage( player, telegram ) {
         switch ( telegram.Msg ) {
-            case Msg_ReceiveBall:
+            case  window.MessageTypes.Msg_ReceiveBall:
                 //set the target
                 player.Steering().SetTarget( telegram.ExtraInfo );
 
@@ -40,7 +40,7 @@ class GlobalPlayerState extends State {
                 return true;
             break;
 
-            case Msg_SupportAttacker:
+            case window.MessageTypes.Msg_SupportAttacker:
                 //if already supporting just return
                 if ( player.GetFSM().isInState( SupportAttacker.Instance() ) ) {
                     return true;
@@ -55,14 +55,14 @@ class GlobalPlayerState extends State {
                 return true;
             break;
 
-            case Msg_Wait:
+            case window.MessageTypes.Msg_Wait:
                 //change the state
                 player.GetFSM().ChangeState( Wait.Instance() );
 
                 return true;
            break;
 
-            case Msg_GoHome:
+            case window.MessageTypes.Msg_GoHome:
                 player.SetDefaultHomeRegion();
 
                 player.GetFSM().ChangeState( ReturnToHomeRegion.Instance() );
@@ -71,7 +71,7 @@ class GlobalPlayerState extends State {
 
             break;
 
-            case Msg_PassToMe:
+            case window.MessageTypes.Msg_PassToMe:
                 //get the position of the player requesting the pass 
                 let receiver = telegram.ExtraInfo;
 
@@ -92,7 +92,7 @@ class GlobalPlayerState extends State {
                 };
 
                 //make the pass   
-                player.Ball().Kick( sub( receiver.Pos(), player.Ball().Pos() ),
+                player.Ball().Kick( Vector2D.sub( receiver.Pos(), player.Ball().Pos() ),
                         Prm.MaxPassingForce );
 
 
@@ -101,16 +101,16 @@ class GlobalPlayerState extends State {
                 };
 
                 //let the receiver know a pass is coming 
-                Dispatcher.DispatchMsg( SEND_MSG_IMMEDIATELY,
+                Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                         player.ID(),
                         receiver.ID(),
-                        Msg_ReceiveBall,
+                        window.MessageTypes.Msg_ReceiveBall,
                         receiver.Pos() );
 
 
 
                 //change state   
-                player.GetFSM().ChangeState(Wait.Instance());
+                player.GetFSM().ChangeState( Wait.Instance() );
 
                 player.FindSupport();
 

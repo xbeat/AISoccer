@@ -272,8 +272,8 @@ class PlayerBase extends MovingEntity {
      * the area close to the opponent's goal 
      */
     InHotRegion() {
-        return Math.abs( Pos().x - Team().OpponentsGoal().Center().x )
-                < Pitch().PlayingArea().Length() / 3.0;
+        return Math.abs( this.Pos().x - this.Team().OpponentsGoal().Center().x )
+                < this.Pitch().PlayingArea().Length() / 3.0;
     };
 
     Role() {

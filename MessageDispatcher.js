@@ -50,18 +50,18 @@ class MessageDispatcher {
      * routes the message to the correct agent (if no delay) or stores
      * in the message queue to be dispatched at the correct time
      */
-    DispatchMsg( delay,
-            sender,
-            receiver,
-            msg ) {
-        DispatchMsg( delay, sender, receiver, msg, null );
-    };
+    //DispatchMsg( delay,
+    //        sender,
+    //        receiver,
+    //        msg ) {
+    //    DispatchMsg( delay, sender, receiver, msg, null );
+    //};
 
     DispatchMsg( delay,
             sender,
             receiver,
             msg,
-            AdditionalInfo ) {
+            AdditionalInfo = null ) {
 
         //get a pointer to the receiver
         let pReceiver = EntityMgr.GetEntityFromID( receiver );
@@ -84,7 +84,7 @@ class MessageDispatcher {
                console.log("\nTelegram dispatched at time: " + TickCounter.GetCurrentFrame() + " by " + sender + " for " +  receiver + ". Msg is " + msg );
             };
             //send the telegram to the recipient
-            Discharge( pReceiver, telegram );
+            this.Discharge( pReceiver, telegram );
         } //else calculate the time when the telegram should be dispatched
         else {
             let CurrentTime = TickCounter.GetCurrentFrame();
@@ -125,7 +125,7 @@ class MessageDispatcher {
             };
 
             //send the telegram to the recipient
-            Discharge( pReceiver, telegram );
+            this.Discharge( pReceiver, telegram );
 
             //remove it from the queue
             this.PriorityQ.remove( PriorityQ.first() );

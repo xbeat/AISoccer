@@ -97,11 +97,11 @@ class Region {
     };
 
     Length() {
-        return Math.max( Width(), Height() );
+        return Math.max( this.Width(), this.Height() );
     };
 
     Breadth() {
-        return Math.min( Width(), Height() );
+        return Math.min( this.Width(), this.Height() );
     };
 
     Center() {

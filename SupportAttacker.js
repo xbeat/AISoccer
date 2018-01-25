@@ -4,14 +4,14 @@
 
 class SupportAttacker extends State {
 
-    constructor() {
-        let instance = new SupportAttacker();
+    constructor(){
+        super();
     };
 
     //this is a singleton
-    Instance() {
-        return instance;
-    };
+    static Instance() {
+        return new SupportAttacker();
+    };    
 
     Enter( player ) {
         player.Steering().ArriveOn();

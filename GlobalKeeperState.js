@@ -25,12 +25,12 @@ class GlobalKeeperState extends State {
 
     OnMessage( keeper, telegram ) {
         switch ( telegram.Msg ) {
-            case Msg_GoHome:
+            case window.MessageTypes.Msg_GoHome:
                 keeper.SetDefaultHomeRegion();
                 keeper.GetFSM().ChangeState( ReturnHome.Instance() );
             break;
 
-            case Msg_ReceiveBall:
+            case window.MessageTypes.Msg_ReceiveBall:
                 keeper.GetFSM().ChangeState( InterceptBall.Instance() );
             break;
 

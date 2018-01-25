@@ -689,10 +689,15 @@ class SoccerTeam {
      * given as a par ameter
      */
     isOpponentWithinRadius( pos, rad ) {
-        let it = Opponents().Members().listIterator();
+        //let it = Opponents().Members().listIterator();
 
-        while ( it.hasNext() ) {
-            if ( Vec2DDistanceSq( pos, it.next().Pos() ) < rad * rad ) {
+        //while ( it.hasNext() ) {
+        //    if ( Vec2DDistanceSq( pos, it.next().Pos() ) < rad * rad ) {
+
+        let opp = this.Opponents().Members();
+
+        for( let it = 0, size = opp.length; it < size; it++ ){
+            if ( Vector2D.Vec2DDistanceSq( pos, opp[ it ].Pos() ) < rad * rad ) {
                 return true;
             };
         };

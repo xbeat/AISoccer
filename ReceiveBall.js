@@ -4,14 +4,15 @@
 
 class ReceiveBall extends State {
 
-    constructor() {
-            let instance = new ReceiveBall();
-    }
+    constructor(){
+        super();
+    };
 
     //this is a singleton
-    Instance() {
-        return instance;
-    };
+    static Instance() {
+        return new ReceiveBall();
+    };    
+
 
     Enter( player ) {
         //let the team know this player is receiving the ball
@@ -31,7 +32,7 @@ class ReceiveBall extends State {
         let PassThreatRadius = 70.0;
 
         if ( ( player.InHotRegion()
-                || RandFloat() < Prm.ChanceOfUsingArriveTypeReceiveBehavior )
+                || utils.RandFloat() < Prm.ChanceOfUsingArriveTypeReceiveBehavior )
                 && !player.Team().isOpponentWithinRadius( player.Pos(), PassThreatRadius ) ) {
             player.Steering().ArriveOn();
 

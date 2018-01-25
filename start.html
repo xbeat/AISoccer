@@ -1,0 +1,144 @@
+<html>
+	<body>
+		<button onClick="pause()">Stop RAF</button>
+	</body>
+</html>
+
+<script>
+"use strict";
+function pause(){
+	cancelAnimationFrame( RAF );
+};
+</script>
+
+<!-- Globals -->
+<script type="text/javascript" src="Global.js"></script>
+<script type="text/javascript" src="DEFINE.js"></script>
+
+<!-- Class extended -->
+<script type="text/javascript" src="State.js"></script>
+<script type="text/javascript" src="BaseGameEntity.js"></script>
+<script type="text/javascript" src="MovingEntity.js"></script>
+<script type="text/javascript" src="PlayerBase.js"></script>
+
+<!-- SimpleSoccer -->
+<script type="text/javascript" src="FieldPlayer.js"></script>
+<script type="text/javascript" src="Goal.js"></script>
+<script type="text/javascript" src="GoalKeeper.js"></script>
+<script type="text/javascript" src="MessageTypes.js"></script>
+<script type="text/javascript" src="ParamLoader.js"></script>
+<script type="text/javascript" src="SoccerBall.js"></script>
+<script type="text/javascript" src="SoccerPitch.js"></script>
+<script type="text/javascript" src="SoccerTeam.js"></script>
+<script type="text/javascript" src="SteeringBehaviors.js"></script>
+<script type="text/javascript" src="SupportSpotCalculator.js"></script>
+
+<!-- SimpleSoccer.FieldPlayerStates -->
+<script type="text/javascript" src="ChaseBall.js"></script>
+<script type="text/javascript" src="Dribble.js"></script>
+<script type="text/javascript" src="GlobalPlayerState.js"></script>
+<script type="text/javascript" src="KickBall.js"></script>
+<script type="text/javascript" src="ReceiveBall.js"></script>
+<script type="text/javascript" src="ReturnToHomeRegion.js"></script>
+<script type="text/javascript" src="SupportAttacker.js"></script>
+<script type="text/javascript" src="Wait.js"></script>
+
+<!-- SimpleSoccer.GoalKeeperStates -->
+<script type="text/javascript" src="GlobalKeeperState.js"></script>
+<script type="text/javascript" src="InterceptBall.js"></script>
+<script type="text/javascript" src="PutBallBackInPlay.js"></script>
+<script type="text/javascript" src="ReturnHome.js"></script>
+<script type="text/javascript" src="TendGoal.js"></script>
+
+<!-- SimpleSoccer.TeamStates -->
+<script type="text/javascript" src="Attacking.js"></script>
+<script type="text/javascript" src="Defending.js"></script>
+<script type="text/javascript" src="PrepareForKickOff.js"></script>
+<script type="text/javascript" src="TeamStates.js"></script>
+
+<!-- Common.D2 -->
+<script type="text/javascript" src="C2DMatrix.js"></script>
+<script type="text/javascript" src="InvertedAABBox2D.js"></script>
+<script type="text/javascript" src="Transformation.js"></script>
+<script type="text/javascript" src="Vector2D.js"></script>
+<script type="text/javascript" src="Wall2D.js"></script>
+<script type="text/javascript" src="Geometry.js"></script>
+
+<!-- Common.FSM -->
+<script type="text/javascript" src="StateMachine.js"></script>
+
+<!-- Common.Game -->
+<script type="text/javascript" src="EntityFunctionTemplates.js"></script>
+<script type="text/javascript" src="EntityManager.js"></script>
+<script type="text/javascript" src="Region.js"></script>
+
+<!-- Common.Messaging -->
+<script type="text/javascript" src="TreeSet.js"></script>
+<script type="text/javascript" src="MessageDispatcher.js"></script>
+<script type="text/javascript" src="Telegram.js"></script>
+
+<!-- Common.Time -->
+<script type="text/javascript" src="CrudeTimer.js"></script>
+<script type="text/javascript" src="PrecisionTimer.js"></script>
+<script type="text/javascript" src="Regulator.js"></script>
+
+<!-- Common.Misc -->
+<script type="text/javascript" src="Cgdi.js"></script>
+<script type="text/javascript" src="CppToJava.js"></script>
+<script type="text/javascript" src="FrameCounter.js"></script>
+<script type="text/javascript" src="utils.js"></script>
+
+<script>
+	var cxClient = 700;
+	var cyClient = 400;
+
+	let Color = {
+		WHITE: "255, 255, 255",
+		BLACK: "0, 0, 0"
+	};
+
+	let canvas = document.createElement( "canvas" );
+	document.body.appendChild( canvas );
+	canvas.style.position = "absolute";
+	canvas.style.top = "20px";
+	canvas.style.left = "20px";
+	canvas.style.zIndex = "-97";
+
+	canvas.width = cxClient;
+	canvas.height = cyClient;
+	context = canvas.getContext( '2d' );
+	context.clearRect( 0, 0, canvas.width, canvas.height ); 
+
+	//---------------- init -----------------
+    gdi.StartDrawing( context );
+    gdi.fillRect( Color.WHITE, 0, 0, canvas.width, canvas.height );
+
+	var g_SoccerPitch = new SoccerPitch( cxClient, cyClient );
+	g_SoccerPitch.Render();
+
+    gdi.StopDrawing( context );
+
+
+
+    //--------------- upodate ---------------
+    let timer = new PrecisionTimer();
+    let RAF;
+    //start the timer
+    timer.Start();
+
+
+	(function step() {
+   		RAF = requestAnimationFrame( step );
+
+	    //update
+	    if ( timer.ReadyForNextFrame() ) {
+	        g_SoccerPitch.Update();
+	        //render
+	        //panel.revalidate();
+	        //panel.repaint();
+
+	    };
+		
+	}());
+
+</script>

@@ -205,10 +205,10 @@ class PlayerBase extends MovingEntity {
      *        of his home region
      */
     InHomeRegion() {
-        if ( this.m_PlayerRole == player_role.goal_keeper ) {
-            return Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside(Pos(), Region.normal);
+        if ( this.m_PlayerRole == window.PlayerBaseRole.player_role.goal_keeper ) {
+            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.normal );
         } else {
-            return Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside(Pos(), Region.halfsize );
+            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.halfsize );
         };
     };
 

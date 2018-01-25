@@ -28,7 +28,7 @@ class EntityManager {
      */
      RegisterEntity( NewEntity ) {
         this.m_EntityMap[ NewEntity.ID() ] = NewEntity;
-    }
+    };
 
     /**
      * @return a pointer to the entity with the ID given as a parameter
@@ -38,7 +38,9 @@ class EntityManager {
         let ent = this.m_EntityMap[ id ];
 
         //assert that the entity is a member of the map
-        if ( !( ent != null ) ) console.log( "<EntityManager::GetEntityFromID>: invalid ID" );
+        if ( !( ent != null ) ){ 
+            console.log( "<EntityManager::GetEntityFromID>: invalid ID" );
+        };
 
         return ent;
     };

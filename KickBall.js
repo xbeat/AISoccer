@@ -67,13 +67,13 @@ class KickBall extends State {
                 BallTarget )
                 || ( utils.RandFloat() < Prm.ChancePlayerAttemptsPotShot ) ) {
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                console.log( "Player "  + player.ID() + " attempts a shot at " + BallTarget );
+                console.log( "Player "  + player.ID() + " attempts a shot at ", BallTarget );
             };
 
             //add some noise to the kick. We don't want players who are 
             //too accurate! The amount of noise can be adjusted by altering
             //Prm.PlayerKickingAccuracy
-            let BallTarget = SoccerBall.AddNoiseToKick( player.Ball().Pos(), BallTarget );
+            BallTarget = SoccerBall.AddNoiseToKick( player.Ball().Pos(), BallTarget );
 
             //this is the direction the ball will be kicked in
             let KickDirection = Vector2D.sub( BallTarget, player.Ball().Pos() );
@@ -113,7 +113,7 @@ class KickBall extends State {
             player.Ball().Kick( KickDirection, power );
 
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                console.log( "Player " + player.ID() + " passes the ball with force " + ttos( power, 3 ) + "  to player " + receiver.ID() + "  Target is " + BallTarget );
+                console.log( "Player " + player.ID() + " passes the ball with force " + ttos( power, 3 ) + "  to player " + receiver.ID() + "  Target is ", BallTarget );
             };
 
             //let the receiver know a pass is coming 

@@ -147,7 +147,7 @@ class Vector2D {
      * @param norm 
      */
     Reflect( norm ) {
-        this.add( norm.GetReverse().mul( 2.0 * Dot( norm ) ) );
+        this.add( norm.GetReverse().mul( 2.0 * this.Dot( norm ) ) );
     };
 
     /**
@@ -254,10 +254,10 @@ class Vector2D {
     };
 
     //std::ostream& operator<<(std::ostream& os, const Vector2D& rhs)
-    toString() {
+    //toString() {
         //return " " + ttos( this.x, 2 ) + " " + ttos( this.y, 2 );
-        return " " + parseFloat( this.x ).toFixed( 2 ) + " " + parseFloat( this.y ).toFixed( 2 );
-    };
+    //    return " " + parseFloat( this.x ).toFixed( 2 ) + " " + parseFloat( this.y ).toFixed( 2 );
+    //};
 
     //std::ifstream& operator>>(std::ifstream& is, Vector2D& lhs)
     read( _in ) {
@@ -266,7 +266,7 @@ class Vector2D {
         this.x = sc.nextDouble();
         this.y = sc.nextDouble();
         return this;
-    }
+    };
 
     //------------------------------------------------------------------------non member functions
     static Vec2DNormalize( v ) {
@@ -339,11 +339,11 @@ class Vector2D {
 
         if ( pos.x < 0 ) {
             pos.x = MaxX;
-        }
+        };
 
         if ( pos.y < 0 ) {
             pos.y = MaxY;
-        }
+        };
 
         if ( pos.y > MaxY ) {
             pos.y = 0.0;

@@ -152,7 +152,7 @@ class SoccerTeam {
         var Enty = new EntityManager();
 
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
-           Enty.RegisterEntity( this.m_Players[it] );
+           Enty.RegisterEntity( this.m_Players[ it ] );
         };
 
     };
@@ -184,7 +184,7 @@ class SoccerTeam {
 
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
 
-            let cur = this.m_Players[it];
+            let cur = this.m_Players[ it ];
             //calculate the dist. Use the squared value to avoid sqrt
             let dist = Vector2D.Vec2DDistanceSq( cur.Pos(), this.Pitch().Ball().Pos() );
 
@@ -249,7 +249,7 @@ class SoccerTeam {
         //};
 
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
-           this.m_Players[it].Steering().SeparationOn();
+           this.m_Players[ it ].Steering().SeparationOn();
         };
 
         //create the sweet spot calculator
@@ -364,7 +364,7 @@ class SoccerTeam {
         //};
 
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
-           this.m_Players[it].Update();
+           this.m_Players[ it ].Update();
         };
 
     };
@@ -375,15 +375,19 @@ class SoccerTeam {
      * possession
      */
     ReturnAllFieldPlayersToHome() {
-        let it = this.m_Players.listIterator();
+        //let it = this.m_Players.listIterator();
 
-        while ( it.hasNext() ) {
-            let cur = it.next();
-            if ( cur.Role() != PlayerBase.player_role.goal_keeper ) {
-                Dispatcher.DispatchMsg( SEND_MSG_IMMEDIATELY,
+        //while ( it.hasNext() ) {
+        //    let cur = it.next();
+
+        for( let it = 0, size = this.m_Players.length; it < size; it++ ){
+            let cur = this.m_Players[ it ];
+
+            if ( cur.Role() != window.PlayerBaseRole.player_role.goal_keeper ) {
+                Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     1,
                     cur.ID(),
-                    Msg_GoHome,
+                    window.MessageTypes.Msg_GoHome,
                     null );
             };
         };
@@ -718,8 +722,8 @@ class SoccerTeam {
             //let the receiver know a pass is coming 
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     requester.ID(),
-                    ControllingPlayer().ID(),
-                    Msg_PassToMe,
+                    this.ControllingPlayer().ID(),
+                    window.MessageTypes.Msg_PassToMe,
                     requester );
 
         };
@@ -759,51 +763,51 @@ class SoccerTeam {
 
     Members() {
         return this.m_Players;
-    }
+    };
 
     GetFSM() {
         return this.m_pStateMachine;
-    }
+    };
 
     HomeGoal() {
         return this.m_pHomeGoal;
-    }
+    };
 
     OpponentsGoal() {
         return this.m_pOpponentsGoal;
-    }
+    };
 
     Pitch() {
         return this.m_pPitch;
-    }
+    };
 
     Opponents() {
         return this.m_pOpponents;
-    }
+    };
 
     SetOpponents( opps ) {
         this.m_pOpponents = opps;
-    }
+    };
 
     Color() {
         return this.m_Color;
-    }
+    };
 
     SetPlayerClosestToBall( plyr ) {
         this.m_pPlayerClosestToBall = plyr;
-    }
+    };
 
     PlayerClosestToBall() {
         return this.m_pPlayerClosestToBall;
-    }
+    };
 
     ClosestDistToBallSq() {
         return this.m_dDistSqToBallOfClosestPlayer;
-    }
+    };
 
     GetSupportSpot() {
         return new Vector2D( this.m_pSupportSpotCalc.GetBestSupportingSpot() );
-    }
+    };
 
     SupportingPlayer() {
         return this.m_pSupportingPlayer;
@@ -909,10 +913,13 @@ class SoccerTeam {
      * @return false if any of the team are not located within their home region
      */
     AllPlayersAtHome() {
-        let it = this.m_Players.listIterator();
+        //let it = this.m_Players.listIterator();
 
-        while ( it.hasNext() ) {
-            if ( it.next().InHomeRegion() == false ) {
+        //while ( it.hasNext() ) {
+        //    if ( it.next().InHomeRegion() == false ) {
+
+        for( let it = 0, size = this.m_Players.length; it < size; it++ ){
+            if ( this.m_Players[ it ].InHomeRegion() == false ) {            
                 return false;
             };
         };
@@ -926,7 +933,7 @@ class SoccerTeam {
     Name() {
         if ( this.m_Color == window.SoccerTeamColor.blue ) {
             return "Blue";
-        }
+        };
         return "Red";
     };
 };

@@ -130,7 +130,7 @@ class SupportSpotCalculator {
             //Test 3. calculate how far this spot is away from the controlling
             //player. The further away, the higher the score. Any distances further
             //away than OptimalDistance pixels do not receive a score.
-            if ( this.m_pTeam.SupportingPlayer() != null ) { //TODO: nema tu byt m_pTeam.ControllingPlayer()??
+            if ( this.m_pTeam.SupportingPlayer() != null ) {
 
                 let OptimalDistance = 200.0;
 

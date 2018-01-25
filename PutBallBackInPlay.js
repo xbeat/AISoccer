@@ -35,19 +35,19 @@ class PutBallBackInPlay extends State {
                 BallTarget,
                 Prm.MaxPassingForce,
                 Prm.GoalkeeperMinPassDist ) ) {
-            receiver = receiverRef.get();
+            receiver = window.receiverRef;
             //make the pass   
-            keeper.Ball().Kick( Vec2DNormalize( sub( BallTarget, keeper.Ball().Pos() ) ),
+            keeper.Ball().Kick( Vector2D.Vec2DNormalize( Vector2D.sub( BallTarget, keeper.Ball().Pos() ) ),
                     Prm.MaxPassingForce );
 
             //goalkeeper no longer has ball 
             keeper.Pitch().SetGoalKeeperHasBall( false );
 
             //let the receiving player know the ball's comin' at him
-            Dispatcher.DispatchMsg( SEND_MSG_IMMEDIATELY,
+            Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     keeper.ID(),
                     receiver.ID(),
-                    Msg_ReceiveBall,
+                    window.MessageTypes.Msg_ReceiveBall,
                     BallTarget );
 
             //go back to tending the goal   

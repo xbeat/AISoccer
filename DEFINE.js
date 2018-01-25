@@ -10,7 +10,7 @@
  let SHOW_MESSAGING_INFO = true;
  let DEBUG_TEAM_STATES = true;
  let GOALY_STATE_INFO_ON = true;
- let PLAYER_STATE_INFO_ON = true;
+ let PLAYER_STATE_INFO_ON = false;
  
  var def = function( D ) {
      return D;

@@ -112,8 +112,8 @@ class SoccerBall extends MovingEntity {
         //before reflecting it. This prevents the case where there is overshoot
         //and the ball gets reflected back over the line before it has completely
         //reentered the playing area.
-        if ( ( idxClosest >= 0) && VelNormal.Dot( walls.get( idxClosest ).Normal() ) < 0 ) {
-            m_vVelocity.Reflect( walls.get( idxClosest ).Normal() );
+        if ( ( idxClosest >= 0) && VelNormal.Dot( walls[ idxClosest ].Normal() ) < 0 ) {
+            this.m_vVelocity.Reflect( walls[ idxClosest ].Normal() );
         };
     };
 
@@ -259,9 +259,9 @@ class SoccerBall extends MovingEntity {
     PlaceAtPosition( NewPos ) {
         let m_vPosition = new Vector2D ( NewPos );
 
-        m_vOldPos = new Vector2D( m_vPosition );
+        this.m_vOldPos = new Vector2D( m_vPosition );
 
-        m_vVelocity.Zero();
+        this.m_vVelocity.Zero();
     };
 
     /**

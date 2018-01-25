@@ -27,7 +27,8 @@ class EntityManager {
      * (makes for faster access)
      */
      RegisterEntity( NewEntity ) {
-        this.m_EntityMap[ NewEntity.ID() ] = NewEntity;
+        //NewEntity.ID() --> key
+        this.m_EntityMap.push( NewEntity );
     };
 
     /**
@@ -35,7 +36,17 @@ class EntityManager {
      */
     GetEntityFromID( id ) {
         //find the entity
-        let ent = this.m_EntityMap[ id ];
+        //let ent = this.m_EntityMap[ id ];
+
+        function FindEntityById( entity ) {
+
+                if ( entity.m_ID === this ) {
+                    return entity;
+                };
+
+        };
+
+        let ent = this.m_EntityMap.find( FindEntityById, id );
 
         //assert that the entity is a member of the map
         if ( !( ent != null ) ){ 

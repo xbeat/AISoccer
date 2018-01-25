@@ -149,10 +149,8 @@ class SoccerTeam {
         //while ( it.hasNext() ) {
         //    EntityMgr.RegisterEntity( it.next() );
         //};
-        var Enty = new EntityManager();
-
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
-           Enty.RegisterEntity( this.m_Players[ it ] );
+           EntityMgr.RegisterEntity( this.m_Players[ it ] );
         };
 
     };

@@ -35,7 +35,7 @@ class Regulator {
     isReady() {
         //if a regulator is instantiated with a zero freq then it goes into
         //stealth mode (doesn't regulate)
-        if ( Vector2D.isEqual( 0.0, this.m_dUpdatePeriod ) ) {
+        if ( utils.isEqual( 0.0, this.m_dUpdatePeriod ) ) {
             return true;
         };
 

@@ -70,8 +70,8 @@ class SupportSpotCalculator {
         gdi.HollowBrush();
         gdi.GreyPen();
 
-        for ( let spt = 0; spt < this.m_Spots.size(); ++spt ) {
-            gdi.Circle( m_Spots.get( spt ).m_vPos, this.m_Spots.get( spt ).m_dScore );
+        for ( let spt = 0; spt < this.m_Spots.length; ++spt ) {
+            gdi.Circle( this.m_Spots[ spt ].m_vPos, this.m_Spots[ spt ].m_dScore );
         }
 
         if ( this.m_pBestSupportingSpot != null ) {

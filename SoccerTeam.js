@@ -292,7 +292,7 @@ class SoccerTeam {
                 gdi.TextAtPos( 20, 3, "Red in Control" );
             }
             if ( this.m_pControllingPlayer != null ) {
-                gdi.TextAtPos( Pitch().cxClient() - 150, 3,
+                gdi.TextAtPos( this.Pitch().cxClient() - 150, 3,
                         "Controlling Player: " + ttos( this.m_pControllingPlayer.ID() ) );
             };
         };

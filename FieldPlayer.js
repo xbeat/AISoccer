@@ -138,7 +138,7 @@ class FieldPlayer extends PlayerBase {
 
         //and 'is 'ead
         gdi.BrownBrush();
-        if ( Prm.bHighlightIfThreatened && ( this.Team().ControllingPlayer() == this ) && isThreatened() ) {
+        if ( Prm.bHighlightIfThreatened && ( this.Team().ControllingPlayer() == this ) && this.isThreatened() ) {
             gdi.YellowBrush();
         }
         gdi.Circle( this.Pos(), 6 );

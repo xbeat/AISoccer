@@ -257,7 +257,7 @@ class SoccerBall extends MovingEntity {
      *  zero
      */
     PlaceAtPosition( NewPos ) {
-        let m_vPosition = new Vector2D ( NewPos );
+        let m_vPosition = new Vector2D( NewPos );
 
         this.m_vOldPos = new Vector2D( m_vPosition );
 

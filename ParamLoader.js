@@ -56,11 +56,11 @@ var ParamLoader = function() {
 
   this.bStates = true;
   this.bIDs = true;
-  this.bSupportSpots = true;
-  this.bRegions = true;
+  this.bSupportSpots = false;
+  this.bRegions = false;
   this.bShowControllingTeam = true;
   this.bViewTargets = true;
-  this.bHighlightIfThreatened = true;
+  this.bHighlightIfThreatened = false;
 
   this.FrameRate = 60;
 

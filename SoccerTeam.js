@@ -499,7 +499,7 @@ class SoccerTeam {
 
                         //keep a record of this player
                         window.receiverRef = curPlyr;                        
-                        receiver = curPlyr;
+                        //receiver = curPlyr;
 
                         //and the target
                         PassTarget = Object.assign( {}, Target );

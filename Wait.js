@@ -14,9 +14,9 @@ class Wait extends State {
     };
 
     static Enter( player ) {
-        //if ( def( PLAYER_STATE_INFO_ON ) ) {
-        //        debug_con.print("Player ").print(player.ID()).print(" enters wait state").print("");
-        //};
+        if ( def( PLAYER_STATE_INFO_ON ) ) {
+                console.log( "Player " + player.ID() + " enters wait state" );
+        };
 
         //if the game is not on make sure the target is the center of the player's
         //home region. This is ensure all the players are in the correct positions

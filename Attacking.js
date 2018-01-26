@@ -23,7 +23,7 @@ class Attacking extends State {
         let RedRegions = [16, 3, 5, 9, 13];
 
         //set up the player's home regions
-        if ( team.Color() == SoccerTeam.blue ) {
+        if ( team.Color() == window.SoccerTeamColor.blue ) {
             TeamStates.ChangePlayerHomeRegions( team, BlueRegions );
         } else {
             TeamStates.ChangePlayerHomeRegions( team, RedRegions );
@@ -38,7 +38,7 @@ class Attacking extends State {
     Execute( team ) {
         //if this team is no longer in control change states
         if ( !team.InControl() ) {
-            team.GetFSM().ChangeState(Defending.Instance());
+            team.GetFSM().ChangeState( Defending.Instance() );
             return;
         };
 

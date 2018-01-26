@@ -76,7 +76,7 @@ class GlobalPlayerState extends State {
                 let receiver = telegram.ExtraInfo;
 
                 if ( def( PLAYER_STATE_INFO_ON ) ) {
-                    debug_con.print("Player ").print(player.ID()).print(" received request from ").print(receiver.ID()).print(" to make pass").print("");
+                    console.log( "Player " + player.ID() + " received request from " + receiver.ID() + " to make pass" );
                 };
 
                 //if the ball is not within kicking range or their is already a 
@@ -85,7 +85,7 @@ class GlobalPlayerState extends State {
                 if ( player.Team().Receiver() != null
                         || !player.BallWithinKickingRange() ) {
                     if ( def( PLAYER_STATE_INFO_ON ) ) {
-                        debug_con.print("Player ").print(player.ID()).print(" cannot make requested pass <cannot kick ball>").print("");
+                        console.log( "Player " + player.ID() + " cannot make requested pass <cannot kick ball>" );
                     };
 
                     return true;
@@ -97,7 +97,7 @@ class GlobalPlayerState extends State {
 
 
                 if ( def( PLAYER_STATE_INFO_ON ) ) {
-                    debug_con.print("Player ").print(player.ID()).print(" Passed ball to requesting player").print("");
+                    console.log( "Player " + player.ID() + " Passed ball to requesting player ");
                 };
 
                 //let the receiver know a pass is coming 
@@ -106,8 +106,6 @@ class GlobalPlayerState extends State {
                         receiver.ID(),
                         window.MessageTypes.Msg_ReceiveBall,
                         receiver.Pos() );
-
-
 
                 //change state   
                 player.GetFSM().ChangeState( Wait.Instance() );

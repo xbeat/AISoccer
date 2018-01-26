@@ -16,17 +16,17 @@ class SupportAttacker extends State {
     Enter( player ) {
         player.Steering().ArriveOn();
 
-        player.Steering().SetTarget(player.Team().GetSupportSpot());
+        player.Steering().SetTarget( player.Team().GetSupportSpot() );
 
-        if (def(PLAYER_STATE_INFO_ON)) {
-            debug_con.print("Player ").print(player.ID()).print(" enters support state").print("");
+        if ( def( PLAYER_STATE_INFO_ON ) ) {
+            console.log("Player " + player.ID() + " enters support state" );
         };
     };
 
     Execute( player ) {
         //if his team loses control go back home
         if ( !player.Team().InControl() ) {
-            player.GetFSM().ChangeState(ReturnToHomeRegion.Instance());
+            player.GetFSM().ChangeState( ReturnToHomeRegion.Instance() );
             return;
         };
 
@@ -65,7 +65,7 @@ class SupportAttacker extends State {
     Exit( player ) {
         //set supporting player to null so that the team knows it has to 
         //determine a new one.
-        player.Team().SetSupportingPlayer(null);
+        player.Team().SetSupportingPlayer( null );
 
         player.Steering().ArriveOff();
     };

@@ -37,13 +37,13 @@ class ReceiveBall extends State {
             player.Steering().ArriveOn();
 
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                debug_con.print("Player ").print(player.ID()).print(" enters receive state (Using Arrive)").print("");
+                console.log("Player " + player.ID() + " enters receive state (Using Arrive)" );
             }
         } else {
             player.Steering().PursuitOn();
 
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                debug_con.print("Player ").print(player.ID()).print(" enters receive state (Using Pursuit)").print("");
+                console.log("Player " + player.ID() + " enters receive state (Using Pursuit)" );
             };
         };
 

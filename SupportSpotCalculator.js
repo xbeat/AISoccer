@@ -42,7 +42,7 @@ class SupportSpotCalculator {
 
         for ( let x = 0; x < ( numX / 2 ) - 1; ++x ) {
             for ( let y = 0; y < numY; ++y ) {
-                if ( this.m_pTeam.Color() == SoccerTeam.blue ) {
+                if ( this.m_pTeam.Color() == window.SoccerTeamColor.blue ) {
                     this.m_Spots.push( new this.SupportSpot( new Vector2D( left + x * SliceX, top + y * SliceY ), 0.0 ) );
                 } else {
                     this.m_Spots.push( new this.SupportSpot( new Vector2D( right - x * SliceX, top + y * SliceY ), 0.0 ) );

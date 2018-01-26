@@ -172,7 +172,7 @@ class geometry {
 
     /**
      *	Given 2 lines in 2D space AB, CD this returns true if an 
-     *	intersection occurs.
+     *	intersection occurs. !!overload function manager!!
      */
 
      static LineIntersection2D( A,
@@ -200,7 +200,10 @@ class geometry {
      };
 
 
-     //------- function overloaded ^^^^^^
+    /**
+     *  Given 2 lines in 2D space AB, CD this returns true if an 
+     *  intersection occurs.
+     */
      static LineIntersection2D_4P( A,
                          B,
                          C,

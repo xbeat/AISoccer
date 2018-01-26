@@ -103,7 +103,7 @@ class SupportSpotCalculator {
 
         for( let it = 0, size = this.m_Spots.length; it < size; it++ ){
 
-            let curSpot = this.m_Spots[it];
+            let curSpot = this.m_Spots[ it ];
 
             //first remove any previous score. (the score is set to one so that
             //the viewer can see the positions of all the spots if he has the 

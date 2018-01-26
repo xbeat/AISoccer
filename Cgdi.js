@@ -279,7 +279,7 @@ class Cgdi {
 
     HollowBrush() {
         if ( this.m_hdc != null ) {
-            //BrushColor = null;
+            this.BrushColor = null;
         };
     };
 
@@ -342,6 +342,7 @@ class Cgdi {
         if ( brush ) {
             this.BrushColor = color;
         } else {
+            this.BrushColor = null;
             this.PenColor = color;
         };
     };
@@ -373,7 +374,17 @@ class Cgdi {
     };    
    
     //---------------------------Text
-    TextAtPos( x, y, s ) {
+    TextAtPos( a, b, c ) {
+
+        if ( typeof a  === 'object' ){
+            var x = a.x;
+            var y = a.y;
+            var s = b;
+        } else {
+            var x = a; 
+            var y = b;
+            var s = c;
+        };
 
         this.m_hdc.fillStyle = this.textColor;
         this.m_hdc.font = "bold 12px Arial";

@@ -184,11 +184,11 @@ class SoccerPitch {
 
         //show the score
         gdi.TextColor( 255, 0, 0 ); // red
-        gdi.TextAtPos( ( this.m_cxClient / 2 ) - 50, this.m_cyClient - 18,
+        gdi.TextAtPos( ( this.m_cxClient / 2 ) - 50, this.m_cyClient - 8,
                 "Red: " + ttos( this.m_pBlueGoal.NumGoalsScored() ) );
 
         gdi.TextColor( 0, 0, 255 ); // blue
-        gdi.TextAtPos( ( this.m_cxClient / 2 ) + 10, this.m_cyClient - 18, 
+        gdi.TextAtPos( ( this.m_cxClient / 2 ) + 10, this.m_cyClient - 8, 
                 "Blue: " + ttos( this.m_pRedGoal.NumGoalsScored() ) );
 
         return true;

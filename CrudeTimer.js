@@ -14,7 +14,7 @@ class CrudeTimer {
     };
 
     clone() {
-        throw new CloneNotSupportedException("Cloning not allowed");
+        throw new Error( "Cloning Crudetimer not allowed" );
     };
 
     Instance() {

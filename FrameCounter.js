@@ -11,7 +11,7 @@ class FrameCounter {
     };
 
     clone() {
-        throw new CloneNotSupportedException();
+        throw new Error( "Clone FrameCounter not allowed" );
     };
 
     Instance() {

@@ -37,12 +37,12 @@ class MessageDispatcher {
     };
 
     clone() {
-        throw new CloneNotSupportedException("Cloning not allowed");
+        throw new Error("Cloning MessageDispatcher not allowed");
     };
 
     //this class is a singleton
     static Instance() {
-        return Dispatcher;
+        return new Dispatcher();
     };
 
     /**

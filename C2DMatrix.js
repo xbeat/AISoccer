@@ -38,31 +38,31 @@ class C2DMatrix {
 
     _13( val ) {
         this.m_Matrix._13 = val;
-    }
+    };
 
     _21( val ) {
         this.m_Matrix._21 = val;
-    }
+    };
 
     _22( val ) {
         this.m_Matrix._22 = val;
-    }
+    };
 
     _23( val ) {
         this.m_Matrix._23 = val;
-    }
+    };
 
     _31( val ) {
         this.m_Matrix._31 = val;
-    }
+    };
 
     _32( val ) {
         this.m_Matrix._32 = val;
-    }
+    };
 
     _33( val ) {
        this.m_Matrix._33 = val;
-    }
+    };
 
     //multiply two matrices together
     MatrixMultiply( mIn ) {
@@ -84,29 +84,45 @@ class C2DMatrix {
         mat_temp._33 = ( this.m_Matrix._31 * mIn._13 ) + ( this.m_Matrix._32 * mIn._23 ) + ( this.m_Matrix._33 * mIn._33 );
 
         this.m_Matrix = mat_temp;
-    }
+    };
 
     //applies a 2D transformation matrix to a std::vector of Vector2Ds
     TransformVector2Ds( vPoint ) {
-        let it = vPoint.listIterator();
-        while ( it.hasNext() ) {
-            let i = it.next();
-            let tempX = ( this.m_Matrix._11 * i.x ) + ( this.m_Matrix._21 * i.y ) + ( this.m_Matrix._31 );
-            let tempY = ( this.m_Matrix._12 * i.x ) + ( this.m_Matrix._22 * i.y ) + ( this.m_Matrix._32 );
-            i.x = tempX;
-            i.y = tempY;
+        if ( Array.isArray( vPoint ) ) {
+
+            //let it = vPoint.listIterator();
+            //while ( it.hasNext() ) {
+            //    let i = it.next();
+            for( let it = 0, size = vPoint.length; it < size; it++ ){
+
+                let i = vPoint[ it ];
+
+                let tempX = ( this.m_Matrix._11 * i.x ) + ( this.m_Matrix._21 * i.y ) + ( this.m_Matrix._31 );
+                let tempY = ( this.m_Matrix._12 * i.x ) + ( this.m_Matrix._22 * i.y ) + ( this.m_Matrix._32 );
+                i.x = tempX;
+                i.y = tempY;
+            };
+
+        } else {
+        
+            let tempX = ( this.m_Matrix._11 * vPoint.x ) + ( this.m_Matrix._21 * vPoint.y ) + ( this.m_Matrix._31 );
+            let tempY = ( this.m_Matrix._12 * vPoint.x ) + ( this.m_Matrix._22 * vPoint.y ) + ( this.m_Matrix._32 );
+
+            vPoint.x = tempX;
+            vPoint.y = tempY;
         };
+
     };
 
     //applies a 2D transformation matrix to a single Vector2D
-    TransformVector2Ds( vPoint ) {
+    //TransformVector2Ds( vPoint ) {
 
-        let tempX = ( this.m_Matrix._11 * vPoint.x ) + ( this.m_Matrix._21 * vPoint.y ) + ( this.m_Matrix._31 );
-        let tempY = ( this.m_Matrix._12 * vPoint.x ) + ( this.m_Matrix._22 * vPoint.y ) + ( this.m_Matrix._32 );
+    //    let tempX = ( this.m_Matrix._11 * vPoint.x ) + ( this.m_Matrix._21 * vPoint.y ) + ( this.m_Matrix._31 );
+    //    let tempY = ( this.m_Matrix._12 * vPoint.x ) + ( this.m_Matrix._22 * vPoint.y ) + ( this.m_Matrix._32 );
 
-        vPoint.x = tempX;
-        vPoint.y = tempY;
-    };
+    //    vPoint.x = tempX;
+    //    vPoint.y = tempY;
+    //};
 
     //create an identity matrix
     Identity() {
@@ -171,6 +187,7 @@ class C2DMatrix {
     Rotate( fwd,  side ) {
 
         if ( side === undefined ){
+
             let rot = fwd;
             let mat = new Matrix();
 

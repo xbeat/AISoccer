@@ -112,15 +112,14 @@ function pause(){
 
 	//---------------- init -----------------
     gdi.StartDrawing( context );
+    
     gdi.fillRect( Color.WHITE, 0, 0, canvas.width, canvas.height );
 
 	var g_SoccerPitch = new SoccerPitch( cxClient, cyClient );
-	g_SoccerPitch.Render();
+	
+	//g_SoccerPitch.Render();
 
     gdi.StopDrawing( context );
-
-	
-debugger;
 
     //--------------- upodate ---------------
     let timer = new PrecisionTimer();
@@ -137,6 +136,9 @@ debugger;
 	        g_SoccerPitch.Update();
 	        //render
 	        g_SoccerPitch.Render();
+
+debugger;
+
 	        //panel.revalidate();
 	        //panel.repaint();
 

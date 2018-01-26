@@ -882,7 +882,7 @@ class SoccerTeam {
 
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
 
-            let cur = this.m_Players[it];
+            let cur = this.m_Players[ it ];
             if ( cur.Role() != window.PlayerBaseRole.player_role.goal_keeper ) {
                 //cast to a field player
                 let plyr = cur;

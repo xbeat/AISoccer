@@ -14,9 +14,9 @@ class Transformation {
             pos,
             forward,
             side,
-            scale ) {
+            scale = new Vector2D( 1.0, 1.0 ) ) {
         //copy the original vertices into the buffer about to be transformed
-        let TranVector2Ds = CppToJava.clone(points);
+        let TranVector2Ds = CppToJava.clone( points );
 
         //create a transformation matrix
         let matTransform = new C2DMatrix();
@@ -42,35 +42,35 @@ class Transformation {
     *  given a std::vector of 2D vectors, a position and  orientation
     *  this function transforms the 2D vectors into the object's world space
     */
-    static WorldTransform( points,
-            pos,
-            forward,
-            side ) {
+    //static WorldTransform( points,
+    //        pos,
+    //        forward,
+    //        side ) {
         //copy the original vertices into the buffer about to be transformed
-        let TranVector2Ds = CppToJava.clone(points);
+    //    let TranVector2Ds = CppToJava.clone( points );
         
         //for( Vector2D v: points ) {
         //    TranVector2Ds.add( v );
         //};
 
-        for ( let i = 0, len = points.length; i < len; i++ ) {
-            TranVector2Ds.push( points[i] );
-        };
+    //    for ( let i = 0, len = points.length; i < len; i++ ) {
+    //        TranVector2Ds.push( points[i] );
+    //    };
 
         //create a transformation matrix
-        let matTransform = new C2DMatrix();
+    //    let matTransform = new C2DMatrix();
 
         //rotate
-        matTransform.Rotate( forward, side );
+    //    matTransform.Rotate( forward, side );
 
         //and translate
-        matTransform.Translate( pos.x, pos.y );
+    //    matTransform.Translate( pos.x, pos.y );
 
         //now transform the object's vertices
-        matTransform.TransformVector2Ds( TranVector2Ds );
+    //    matTransform.TransformVector2Ds( TranVector2Ds );
 
-        return TranVector2Ds;
-    };
+    //    return TranVector2Ds;
+    //};
 
     //--------------------- PointToWorldSpace --------------------------------
     //
@@ -106,13 +106,13 @@ class Transformation {
                         AgentHeading,
                         AgentSide ) {
         //make a copy of the point
-        let TransVec = new Vector2D(vec);
+        let TransVec = new Vector2D( vec );
 
         //create a transformation matrix
         let matTransform = new C2DMatrix();
 
         //rotate 
-        matTransform.Rotate( AgentHeading, AgentSide);
+        matTransform.Rotate( AgentHeading, AgentSide );
 
         //now transform the vertices
         matTransform.TransformVector2Ds( TransVec );

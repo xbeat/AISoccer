@@ -515,14 +515,14 @@ class Cgdi {
         //    pol.addPoint( p.x, p.y );
         //};
 
-        this.m_hdc.fillStyle = '#f00';
+        this.m_hdc.strokeStyle = this.PenColor;
         this.m_hdc.beginPath();
         this.m_hdc.moveTo( points[0].x, points[0].y );
         for( let item = 1; item < points.length; item++ ){ 
             this.m_hdc.lineTo( points[item].x, points[item].y );
         };
         this.m_hdc.closePath();
-        this.m_hdc.fill();
+        this.m_hdc.stroke();
 
         //this.m_hdc.setColor( this.PenColor );
         //this.m_hdc.drawPolygon( pol );

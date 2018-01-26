@@ -174,7 +174,34 @@ class geometry {
      *	Given 2 lines in 2D space AB, CD this returns true if an 
      *	intersection occurs.
      */
+
      static LineIntersection2D( A,
+                        B,
+                        C,
+                        D,
+                        dist,
+                        point ){
+
+
+        switch( arguments.length ) {
+            case 4:
+                return this.LineIntersection2D_4P( A, B, C, D );
+                break;
+            case 5:
+                return this.LineIntersection2D_5P( A, B, C, D, dist );
+                break;
+            case 6:
+                return this.LineIntersection2D_6P( A, B, C, D, dist, point );
+                break;
+            default:
+                console.log( " Geometry line intersection function overload error ");
+        };
+
+     };
+
+
+     //------- function overloaded ^^^^^^
+     static LineIntersection2D_4P( A,
                          B,
                          C,
                          D ) {
@@ -206,7 +233,7 @@ class geometry {
      *  intersection occurs and sets dist to the distance the intersection
      *  occurs along AB
      */
-     static _LineIntersection2D( A,
+     LineIntersection2D_5P( A,
             B,
             C,
             D,
@@ -247,12 +274,12 @@ class geometry {
      *  occurs along AB. Also sets the 2d vector point to the point of
      *  intersection
      */
-     static  _LineIntersection2D( A,
-                            B,
-                            C,
-                            D,
-                            dist,
-                            point ) {
+     LineIntersection2D_6P( A,
+                        B,
+                        C,
+                        D,
+                        dist,
+                        point ) {
 
         let rTop = ( A.y - C.y ) * ( D.x - C.x ) - ( A.x - C.x ) * ( D.y - C.y );
         let rBot = ( B.x - A.x ) * ( D.y - C.y ) - ( B.y - A.y ) * ( D.x - C.x );

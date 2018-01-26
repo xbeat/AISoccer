@@ -166,57 +166,48 @@ class C2DMatrix {
         this.MatrixMultiply(mat);
     };
 
-    //create a rotation matrix
-    //Rotate( rot ) {
-    //    let mat = new Matrix();
+    //create a rotation matrix !!overload function manager!!
+    Rotate( a, b ) {
 
-    //    let Sin = Math.sin( rot );
-    //    let Cos = Math.cos( rot );
-
-    //    mat._11 = Cos; mat._12 = Sin; mat._13 = 0;
-
-    //    mat._21 = -Sin; mat._22 = Cos; mat._23 = 0;
-        
-    //    mat._31 = 0; mat._32 = 0; mat._33 = 1;
-
-        //and multiply
-    //    this.MatrixMultiply( mat );
-    //};
-
-    //create a rotation matrix from a 2D vector
-    Rotate( fwd,  side ) {
-
-        if ( side === undefined ){
-
-            let rot = fwd;
-            let mat = new Matrix();
-
-            let Sin = Math.sin( rot );
-            let Cos = Math.cos( rot );
-
-            mat._11 = Cos; mat._12 = Sin; mat._13 = 0;
-
-            mat._21 = -Sin; mat._22 = Cos; mat._23 = 0;
-            
-            mat._31 = 0; mat._32 = 0; mat._33 = 1;
-
-            //and multiply
-            this.MatrixMultiply( mat );
-
-        } else {
-
-            let mat = new Matrix();
-
-            mat._11 = fwd.x; mat._12 = fwd.y;  mat._13 = 0;
-            
-            mat._21 = side.x; mat._22 = side.y; mat._23 = 0;
-            
-            mat._31 = 0; mat._32 = 0; mat._33 = 1;
-
-            //and multiply
-            this.MatrixMultiply( mat );
-
+        switch( arguments.length ) {
+            case 1:
+                this.Rotate_1P( a );
+                break;
+            case 2:
+                this.Rotate_2P( a, b );
+                break;
+            default:
+                console.log( " Matrix rotate function overload error ");
         };
 
     };
+
+
+    //create a rotation matrix
+    Rotate_1P( rot ) {
+        let mat = new Matrix();
+
+        let Sin = Math.sin( rot );
+        let Cos = Math.cos( rot );
+
+        mat._11 = Cos; mat._12 = Sin; mat._13 = 0;
+        mat._21 = -Sin; mat._22 = Cos; mat._23 = 0;
+        mat._31 = 0; mat._32 = 0; mat._33 = 1;
+
+        //and multiply
+        this.MatrixMultiply( mat );
+    };
+
+    //create a rotation matrix from a 2D vector
+    Rotate_2P( fwd, side ) {
+        let mat = new Matrix();
+
+        mat._11 = fwd.x; mat._12 = fwd.y;  mat._13 = 0;
+        mat._21 = side.x; mat._22 = side.y; mat._23 = 0;
+        mat._31 = 0; mat._32 = 0; mat._33 = 1;
+
+        //and multiply
+        this.MatrixMultiply( mat );
+    };
+
 };

@@ -40,26 +40,6 @@ let ttos = function( s ){
     return String( s );
 };
 
-let span_type = {
-    
-    plane_backside: 0, plane_front: 1, on_plane: 2
-};
-
 //----------- Globals
-
 window.receiverRef = new Object();
-
-window.SoccerTeamColor = {
-    blue: "blue",
-    red: "red"
-};
-
-window.PlayerBaseRole = {
-    player_role: {
-        goal_keeper: "goal_keeper", 
-        attacker: "attacker", 
-        defender: "defender"
-    }
-};
-
 window.m_iNextValidID = 0;

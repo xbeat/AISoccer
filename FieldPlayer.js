@@ -122,7 +122,7 @@ class FieldPlayer extends PlayerBase {
         //gdi.TextColor(Cgdi.grey);
 
         //set appropriate team color
-        if ( this.Team().Color() == window.SoccerTeamColor.blue ) {
+        if ( this.Team().Color() == SoccerTeam.blue() ) {
             gdi.BluePen();
         } else {
             gdi.RedPen();

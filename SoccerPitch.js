@@ -63,8 +63,8 @@ class SoccerPitch {
                 this.m_vecWalls );
 
         //create the teams 
-        this.m_pRedTeam = new SoccerTeam( this.m_pRedGoal, this.m_pBlueGoal, this, window.SoccerTeamColor.red );
-        this.m_pBlueTeam = new SoccerTeam( this.m_pBlueGoal, this.m_pRedGoal, this, window.SoccerTeamColor.blue );
+        this.m_pRedTeam = new SoccerTeam( this.m_pRedGoal, this.m_pBlueGoal, this, SoccerTeam.red() );
+        this.m_pBlueTeam = new SoccerTeam( this.m_pBlueGoal, this.m_pRedGoal, this, SoccerTeam.blue() );
 
         //make sure each team knows who their opponents are
         this.m_pRedTeam.SetOpponents( this.m_pBlueTeam );

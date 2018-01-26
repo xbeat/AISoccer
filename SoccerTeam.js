@@ -36,7 +36,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.attacker ) );
+                    PlayerBase.player_role().attacker ) );
 
 
             this.m_Players.push( new FieldPlayer( this,
@@ -49,7 +49,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.attacker ) );
+                    PlayerBase.player_role().attacker ) );
 
 
             this.m_Players.push( new FieldPlayer( this,
@@ -62,7 +62,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.defender ) );
+                    PlayerBase.player_role().defender ) );
 
 
             this.m_Players.push( new FieldPlayer( this,
@@ -75,7 +75,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.defender ) );
+                    PlayerBase.player_role().defender ) );
 
         } else {
             //goalkeeper
@@ -102,7 +102,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.attacker ) );
+                    PlayerBase.player_role().attacker ) );
 
             this.m_Players.push( new FieldPlayer( this,
                     11,
@@ -114,7 +114,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.attacker ) );
+                    PlayerBase.player_role().attacker ) );
 
 
             this.m_Players.push( new FieldPlayer( this,
@@ -127,7 +127,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.defender ) );
+                    PlayerBase.player_role().defender ) );
 
 
             this.m_Players.push( new FieldPlayer( this,
@@ -140,7 +140,7 @@ class SoccerTeam {
                     Prm.PlayerMaxSpeedWithoutBall,
                     Prm.PlayerMaxTurnRate,
                     Prm.PlayerScale,
-                    window.PlayerBaseRole.player_role.defender ) );
+                    PlayerBase.player_role().defender ) );
 
         };
 
@@ -254,6 +254,14 @@ class SoccerTeam {
         this.m_pSupportSpotCalc = new SupportSpotCalculator( Prm.NumSupportSpotsX,
                 Prm.NumSupportSpotsY,
                 this );
+    };
+
+    static blue() {
+        return "blue";
+    };
+
+    static red() {
+        return "red";
     };
 
     //----------------------- dtor -------------------------------------------
@@ -381,7 +389,7 @@ class SoccerTeam {
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
             let cur = this.m_Players[ it ];
 
-            if ( cur.Role() != window.PlayerBaseRole.player_role.goal_keeper ) {
+            if ( cur.Role() != PlayerBase.player_role().goal_keeper ) {
                 Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     1,
                     cur.ID(),
@@ -747,7 +755,7 @@ class SoccerTeam {
         //while ( it.hasNext() ) {
         //   let cur = it.next();
             //only attackers utilize the BestSupportingSpot
-            if ( ( cur.Role() == window.PlayerBaseRole.player_role.attacker ) && ( cur != this.m_pControllingPlayer ) ) {
+            if ( ( cur.Role() == PlayerBase.player_role().attacker ) && ( cur != this.m_pControllingPlayer ) ) {
                 //calculate the dist. Use the squared value to avoid sqrt
                 let dist = Vector2D.Vec2DDistanceSq(cur.Pos(), this.m_pSupportSpotCalc.GetBestSupportingSpot() );
 
@@ -883,7 +891,7 @@ class SoccerTeam {
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
 
             let cur = this.m_Players[ it ];
-            if ( cur.Role() != window.PlayerBaseRole.player_role.goal_keeper ) {
+            if ( cur.Role() != PlayerBase.player_role().goal_keeper ) {
                 //cast to a field player
                 let plyr = cur;
 
@@ -934,7 +942,7 @@ class SoccerTeam {
      * @return Name of the team ("Red" or "Blue")
      */
     Name() {
-        if ( this.m_Color == window.SoccerTeamColor.blue ) {
+        if ( this.m_Color == SoccerTeam.blue() ) {
             return "Blue";
         };
         return "Red";

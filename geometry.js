@@ -36,12 +36,20 @@ class geometry {
         let d = dir.Dot( PlaneNormal );
 
         if ( d < -0.000001 ) {
-            return span_type.plane_front;
+            return this.span_type().plane_front;
         } else if (d > 0.000001) {
-            return span_type.plane_backside;
+            return this.span_type().plane_backside;
         };
 
-        return span_type.on_plane;
+        return this.span_type().on_plane;
+    };
+
+    static span_type() {
+        return {    
+            plane_backside: "plane_backside",
+            plane_front: "plane_front", 
+            on_plane: "on_plane"
+        };
     };
 
     /**
@@ -53,8 +61,8 @@ class geometry {
                          radius ) {
         let ToCircle = sub( CircleOrigin, RayOrigin );
         let length = ToCircle.Length();
-        let v = ToCircle.Dot(RayHeading);
-        let d = radius * radius - (length * length - v * v);
+        let v = ToCircle.Dot( RayHeading );
+        let d = radius * radius - ( length * length - v * v );
 
         // If there was no intersection, return -1
         if ( d < 0.0 ) {

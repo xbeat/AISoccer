@@ -16,7 +16,7 @@ class ReturnToHomeRegion extends State {
     Enter( player ) {
         player.Steering().ArriveOn();
 
-        if ( !player.HomeRegion().Inside( player.Steering().Target(), Region.halfsize ) ) {
+        if ( !player.HomeRegion().Inside( player.Steering().Target(), Region.region_modifier().halfsize ) ) {
             player.Steering().SetTarget( player.HomeRegion().Center() );
         }
 
@@ -42,14 +42,14 @@ class ReturnToHomeRegion extends State {
         //if game is on and close enough to home, change state to wait and set the 
         //player target to his current position.(so that if he gets jostled out of 
         //position he can move back to it)
-        if ( player.Pitch().GameOn() && player.HomeRegion().Inside(player.Pos(),
-                Region.halfsize) ) {
-            player.Steering().SetTarget(player.Pos() );
-            player.GetFSM().ChangeState(Wait.Instance() );
+        if ( player.Pitch().GameOn() && player.HomeRegion().Inside( player.Pos(),
+                Region.region_modifier().halfsize ) ) {
+            player.Steering().SetTarget( player.Pos() );
+            player.GetFSM().ChangeState( Wait.Instance() );
         } //if game is not on the player must return much closer to the center of his
         //home region
         else if ( !player.Pitch().GameOn() && player.AtTarget() ) {
-            player.GetFSM().ChangeState(Wait.Instance() );
+            player.GetFSM().ChangeState( Wait.Instance() );
         }
     }
 

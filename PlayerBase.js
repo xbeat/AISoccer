@@ -83,6 +83,14 @@ class PlayerBase extends MovingEntity {
         new AutoList().remove( this );
     };
 
+    static player_role(){
+        return {
+            goal_keeper: "goal_keeper", 
+            attacker: "attacker", 
+            defender: "defender"
+        };
+    };
+
     /**
      *  returns true if there is an opponent within this player's 
      *  comfort zone
@@ -205,10 +213,10 @@ class PlayerBase extends MovingEntity {
      *        of his home region
      */
     InHomeRegion() {
-        if ( this.m_PlayerRole == window.PlayerBaseRole.player_role.goal_keeper ) {
-            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.normal );
+        if ( this.m_PlayerRole == PlayerBase.player_role().goal_keeper ) {
+            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.region_modifier().normal );
         } else {
-            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.halfsize );
+            return this.Pitch().GetRegionFromIndex( this.m_iHomeRegion ).Inside( this.Pos(), Region.region_modifier().halfsize );
         };
     };
 

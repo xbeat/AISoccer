@@ -27,7 +27,7 @@ class GoalKeeper extends PlayerBase {
                 max_speed,
                 max_turn_rate,
                 scale,
-                window.PlayerBaseRole.player_role.goal_keeper );
+                PlayerBase.player_role().goal_keeper );
 
 
         this.m_vLookAt = new Vector2D();
@@ -88,7 +88,7 @@ class GoalKeeper extends PlayerBase {
     //
     //------------------------------------------------------------------------
     Render() {
-        if ( this.Team().Color() == window.SoccerTeamColor.blue ) {
+        if ( this.Team().Color() == SoccerTeam.blue() ) {
             gdi.BluePen();
         } else {
             gdi.RedPen();

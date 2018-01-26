@@ -60,7 +60,7 @@ class SoccerBall extends MovingEntity {
             //calculate exactly where the collision point will hit the plane    
             if ( geometry.WhereIsPoint( ThisCollisionPoint,
                     walls[ w ].From(),
-                    walls[ w ].Normal() ) == span_type.plane_backside ) {
+                    walls[ w ].Normal() ) == geometry.span_type().plane_backside ) {
                 let DistToWall = geometry.DistanceToRayPlaneIntersection( ThisCollisionPoint,
                         walls[ w ].Normal(),
                         walls[ w ].From(),

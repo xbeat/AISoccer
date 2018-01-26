@@ -13,10 +13,6 @@ class Region {
             bottom,
             id ) {
       
-        this.region_modifier = {
-            halfsize: 0, normal: 1
-        };
-
         this.m_dTop = top;
         this.m_dRight = right;
         this.m_dLeft = left;
@@ -28,6 +24,13 @@ class Region {
 
         this.m_dWidth = Math.abs( right - left );
         this.m_dHeight = Math.abs( bottom - top );
+    };
+
+    static region_modifier() {
+        return {
+            halfsize: "halfsize",
+            normal: "normal"
+        };
     };
 
     Render( ShowID ) {
@@ -46,11 +49,11 @@ class Region {
      * region modifier can be used to contract the region bounderies
      */
     //Inside( pos ) {
-    //    return Inside( pos, region_modifier.normal );
+    //    return Inside( pos, Region.region_modifier().normal );
     //};
 
-    Inside( pos, r = this.region_modifier.normal  ) {
-        if ( r == this.region_modifier.normal ) {
+    Inside( pos, r = Region.region_modifier().normal  ) {
+        if ( r == Region.region_modifier().normal ) {
             return ( ( pos.x > this.m_dLeft ) && ( pos.x < this.m_dRight )
                     && (pos.y > this.m_dTop ) && ( pos.y < this.m_dBottom ) );
         } else {

@@ -23,7 +23,7 @@ class Attacking extends State {
         let RedRegions = [16, 3, 5, 9, 13];
 
         //set up the player's home regions
-        if ( team.Color() == window.SoccerTeamColor.blue ) {
+        if ( team.Color() == SoccerTeam.blue() ) {
             TeamStates.ChangePlayerHomeRegions( team, BlueRegions );
         } else {
             TeamStates.ChangePlayerHomeRegions( team, RedRegions );

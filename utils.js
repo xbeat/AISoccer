@@ -72,11 +72,11 @@ class utils {
 
     //returns a random number with a normal distribution. See method at
     //http://www.taygeta.com/random/gaussian.html
-    static RandGaussian() {
-        return RandGaussian(0, 1);
-    };
+    //static RandGaussian() {
+    //    return RandGaussian(0, 1);
+    //};
 
-    static RandGaussian( mean, standard_deviation ) {
+    static RandGaussian( mean = 0, standard_deviation = 1 ) {
 
         let x1, x2, w, y1;
 
@@ -103,11 +103,29 @@ class utils {
     //  
     //  some handy little functions
     //-----------------------------------------------------------------------
-    static Sigmoid( input ) {
+
+    static Sigmoid( A,
+                    B ){
+
+        switch( arguments.length ) {
+            case 1:
+                return this.Sigmoid_1P( A );
+                break;
+            case 2:
+                return this.Sigmoid_2P( A, B );
+                break;
+            default:
+                console.log( " Sigmoid function overload error ");
+        };
+
+    };
+
+
+    static Sigmoid_1P( input ) {
         return Sigmoid( input, 1.0 );
     };
 
-    static Sigmoid( input, response ) {
+    static Sigmoid_2P( input, response ) {
         return ( 1.0 / ( 1.0 + Math.exp( -input / response ) ) );
     };
 

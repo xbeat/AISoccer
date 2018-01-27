@@ -1,4 +1,4 @@
-/**
+x/**
  * Desc:   class to implement a goalkeeper agent
  * 
  */
@@ -69,7 +69,7 @@ class GoalKeeper extends PlayerBase {
 
         //enforce a non-penetration constraint if desired
         if ( Prm.bNonPenetrationConstraint ) {
-            EnforceNonPenetrationContraint( this, new AutoList().GetAllMembers() );
+            EnforceNonPenetrationContraint( this, window.AllPlayers );
         };
 
         //update the heading if the player has a non zero velocity

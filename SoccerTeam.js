@@ -151,6 +151,7 @@ class SoccerTeam {
         //};
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
            EntityMgr.RegisterEntity( this.m_Players[ it ] );
+           window.AllPlayers.push( this.m_Players[ it ] );
         };
 
     };

@@ -81,24 +81,27 @@ class SteeringBehaviors {
      * this calculates a force repelling from the other neighbors
      */
     Separation() {
-
         //iterate through all the neighbors and calculate the vector from them
         let SteeringForce = new Vector2D();
 
-        //let AllPlayers = new AutoList().GetAllMembers();
+        //let AllPlayers = new AutoList<PlayerBase>().GetAllMembers();
         //let it = AllPlayers.listIterator();
         //while ( it.hasNext() ) {
         //    let curPlyr = it.next();
+
+        for( let it = 0, size = window.AllPlayers.length; it < size; it++ ){
+            
+            let curPlyr = window.AllPlayers[ it ];      
             //make sure this agent isn't included in the calculations and that
             //the agent is close enough
-        //    if ( ( curPlyr != m_pPlayer ) && curPlyr.Steering().Tagged() ) {
-        //        let ToAgent = sub( m_pPlayer.Pos(), curPlyr.Pos() );
+            if ( ( curPlyr != this.m_pPlayer ) && curPlyr.Steering().Tagged() ) {
+                let ToAgent = Vector2D.sub( this.m_pPlayer.Pos(), curPlyr.Pos() );
 
                 //scale the force inversely proportional to the agents distance  
                 //from its neighbor.
-        //       SteeringForce.add( div( Vec2DNormalize( ToAgent ), ToAgent.Length() ) );
-        //    };
-        //};
+                SteeringForce.add( Vector2D.div( Vector2D.Vec2DNormalize( ToAgent ), ToAgent.Length() ) );
+            };
+        };
 
         return SteeringForce;
     };
@@ -108,28 +111,30 @@ class SteeringBehaviors {
      * force that attempts to position the agent between them
      */
     Interpose( ball,
-             target,
+            target,
             DistFromTarget ) {
         return this.Arrive( Vector2D.add( target, Vector2D.mul( Vector2D.Vec2DNormalize( Vector2D.sub( ball.Pos(), target ) ),
-                DistFromTarget ) ), this.Deceleration.normal );
-    };
+                DistFromTarget) ), this.Deceleration.normal );
+    }
 
     /**
      *  tags any vehicles within a predefined radius
      */
     FindNeighbours() {
-        return;
-        //***
-        let AllPlayers = new AutoList().GetAllMembers();
-        let it = AllPlayers.listIterator();
-        while ( it.hasNext() ) {
-            let curPlyr = it.next();
+        //let AllPlayers = new AutoList<PlayerBase>().GetAllMembers();
+        //let it = AllPlayers.listIterator();
+        //while ( it.hasNext() ) {
+        //    let curPlyr = it.next();
+
+        for( let it = 0, size = window.AllPlayers.length; it < size; it++ ){
+            
+            let curPlyr = window.AllPlayers[ it ];
 
             //first clear any current tag
             curPlyr.Steering().UnTag();
 
             //work in distance squared to avoid sqrts
-            let to = sub( curPlyr.Pos(), m_pPlayer.Pos() );
+            let to = Vector2D.sub( curPlyr.Pos(), this.m_pPlayer.Pos() );
 
             if ( to.LengthSq() < ( this.m_dViewDistance * this.m_dViewDistance ) ) {
                 curPlyr.Steering().Tag();

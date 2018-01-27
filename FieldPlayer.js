@@ -109,7 +109,7 @@ class FieldPlayer extends PlayerBase {
 
         //enforce a non-penetration constraint if desired
         if ( Prm.bNonPenetrationConstraint ) {
-            EntityFunctionTemplates.EnforceNonPenetrationContraint( this, new AutoList().GetAllMembers() );
+            EntityFunctionTemplates.EnforceNonPenetrationContraint( this, window.AllPlayers );
         };
     };
 

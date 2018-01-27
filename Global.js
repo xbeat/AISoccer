@@ -21,10 +21,4 @@ let ttos = function( s ){
 //----------- Globals
 window.receiverRef = new Object();
 window.m_iNextValidID = 0;
-
-
-
-
-
-
-Number.MIN_VALUE
+window.AllPlayers = new Array();

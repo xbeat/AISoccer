@@ -2,11 +2,9 @@
  * Dribble.js
  */
 
-class Dribble extends State {
+class Dribble {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

@@ -2,11 +2,9 @@
  * 
  */
 
-class GlobalPlayerState extends State {
+class GlobalPlayerState {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

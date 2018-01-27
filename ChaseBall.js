@@ -2,11 +2,9 @@
  * ChaseBall.js
  */
 
-class ChaseBall extends State {
+class ChaseBall {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

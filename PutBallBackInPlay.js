@@ -2,11 +2,9 @@
  * PutBallBackInPlay
  */
 
-class PutBallBackInPlay extends State {
+class PutBallBackInPlay {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

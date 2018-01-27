@@ -2,11 +2,9 @@
  * KickBall.js
  */
 
-class KickBall extends State {
+class KickBall {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

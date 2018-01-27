@@ -9,11 +9,9 @@
  * 
  */
 
-class ReturnHome extends State {
+class ReturnHome {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

@@ -2,11 +2,9 @@
  * GlobalKeeperState.js
  */
 
-class GlobalKeeperState extends State {
+class GlobalKeeperState {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {
@@ -14,7 +12,7 @@ class GlobalKeeperState extends State {
     };
 
 
-    static Enter( keeper ) {
+    Enter( keeper ) {
     };
 
     Execute( keeper ) {

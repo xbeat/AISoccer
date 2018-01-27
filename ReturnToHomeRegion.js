@@ -2,11 +2,9 @@
  * ReturnToHomeRegion.js
  */
 
-class ReturnToHomeRegion extends State {
+class ReturnToHomeRegion  {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

@@ -5,11 +5,9 @@
  * 
  */
 
-class InterceptBall extends State {
+class InterceptBall {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

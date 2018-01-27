@@ -2,11 +2,9 @@
  * PrepareForKickOff.js)
  */
 
-class PrepareForKickOff extends State {
+class PrepareForKickOff {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

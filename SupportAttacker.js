@@ -2,11 +2,9 @@
  * SupportAttacker.js
  */
 
-class SupportAttacker extends State {
+class SupportAttacker {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

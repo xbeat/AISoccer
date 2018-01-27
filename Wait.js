@@ -2,18 +2,14 @@
  * @Wait.js
  */
 
-class Wait extends State {
-
-    constructor(){
-        super();
-    };
+class Wait {
 
     //this is a singleton
     static Instance() {
         return new Wait();
     };
 
-    static Enter( player ) {
+    Enter( player ) {
         if ( def( PLAYER_STATE_INFO_ON ) ) {
                 console.log( "Player " + player.ID() + " enters wait state" );
         };

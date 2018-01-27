@@ -2,11 +2,9 @@
  * Attacking.js
  */
 
-class Attacking extends State {
+class Attacking {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

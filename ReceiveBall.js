@@ -2,11 +2,9 @@
  * ReceiveBall.js
  */
 
-class ReceiveBall extends State {
+class ReceiveBall {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

@@ -2,11 +2,9 @@
  * Defending
  */
 
-class Defending extends State {
+class Defending {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {

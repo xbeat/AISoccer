@@ -9,18 +9,16 @@
  *
  */
 
-class TendGoal extends State {
+class TendGoal {
 
-    constructor(){
-        super();
-    };
+    constructor(){ };
 
     //this is a singleton
     static Instance() {
         return new TendGoal();
     };
 
-    static Enter( keeper ) {
+    Enter( keeper ) {
         //turn interpose on
         keeper.Steering().InterposeOn( Prm.GoalKeeperTendingDistance );
 

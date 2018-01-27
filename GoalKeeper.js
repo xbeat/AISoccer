@@ -1,4 +1,4 @@
-x/**
+/**
  * Desc:   class to implement a goalkeeper agent
  * 
  */

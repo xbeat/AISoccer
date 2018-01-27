@@ -10,7 +10,27 @@ class Transformation {
     //  given a std::vector of 2D vectors, a position, orientation and scale,
     //  this function transforms the 2D vectors into the object's world space
     //------------------------------------------------------------------------
-    static WorldTransform( points,
+     static WorldTransform( A,
+                        B,
+                        C,
+                        D,
+                        scale ){
+
+
+        switch( arguments.length ) {
+            case 4:
+                return this.WorldTransform_4P( A, B, C, D );
+                break;
+            case 5:
+                return this.WorldTransform_5P( A, B, C, D, scale );
+                break;
+            default:
+                console.log( " WorldTransform function overload error ");
+        };
+
+     };
+
+    static WorldTransform_5P( points,
             pos,
             forward,
             side,
@@ -42,35 +62,35 @@ class Transformation {
     *  given a std::vector of 2D vectors, a position and  orientation
     *  this function transforms the 2D vectors into the object's world space
     */
-    //static WorldTransform( points,
-    //        pos,
-    //        forward,
-    //        side ) {
+    static WorldTransform_4P( points,
+            pos,
+            forward,
+            side ) {
         //copy the original vertices into the buffer about to be transformed
-    //    let TranVector2Ds = CppToJava.clone( points );
+        let TranVector2Ds = CppToJava.clone( points );
         
         //for( Vector2D v: points ) {
         //    TranVector2Ds.add( v );
         //};
 
-    //    for ( let i = 0, len = points.length; i < len; i++ ) {
-    //        TranVector2Ds.push( points[i] );
-    //    };
+        for ( let i = 0, len = points.length; i < len; i++ ) {
+            TranVector2Ds.push( points[i] );
+        };
 
         //create a transformation matrix
-    //    let matTransform = new C2DMatrix();
+        let matTransform = new C2DMatrix();
 
         //rotate
-    //    matTransform.Rotate( forward, side );
+        matTransform.Rotate( forward, side );
 
         //and translate
-    //    matTransform.Translate( pos.x, pos.y );
+        matTransform.Translate( pos.x, pos.y );
 
         //now transform the object's vertices
-    //    matTransform.TransformVector2Ds( TranVector2Ds );
+        matTransform.TransformVector2Ds( TranVector2Ds );
 
-    //    return TranVector2Ds;
-    //};
+        return TranVector2Ds;
+    };
 
     //--------------------- PointToWorldSpace --------------------------------
     //

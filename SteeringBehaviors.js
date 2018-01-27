@@ -308,17 +308,7 @@ class SteeringBehaviors {
         //Arrive makes use of these to determine how quickly a vehicle
         //should decelerate to its target
         this.Deceleration = {
-
             slow: 3, normal: 2, fast: 1,
-            dec: null,
-
-            Deceleration: function( d ){
-                this.dec = d;
-            },
-
-            value: function() {
-                return this.dec;
-            }
         };
 
         this.m_pPlayer = agent;

@@ -259,15 +259,6 @@ class Vector2D {
     //    return " " + parseFloat( this.x ).toFixed( 2 ) + " " + parseFloat( this.y ).toFixed( 2 );
     //};
 
-    //std::ifstream& operator>>(std::ifstream& is, Vector2D& lhs)
-    read( _in ) {
-        let sc = new Scanner( _in );
-
-        this.x = sc.nextDouble();
-        this.y = sc.nextDouble();
-        return this;
-    };
-
     //------------------------------------------------------------------------non member functions
     static Vec2DNormalize( v ) {
         let vec = new Vector2D( v );
@@ -365,14 +356,32 @@ class Vector2D {
                 || ( p.y < top_left.y ) || ( p.y > bot_rgt.y );
     };
 
-    static InsideRegion( p,
+    static InsideRegion( A,
+                        B,
+                        C,
+                        D ){
+
+        switch( arguments.length ) {
+            case 3:
+                return this.InsideRegion_3P( A, B, C );
+                break;
+            case 4:
+                return this.InsideRegion_4P( A, B, C, D );
+                break;
+            default:
+                console.log( " InsideRegion function overload error ");
+        };
+
+    };
+
+    static InsideRegion_3P( p,
             top_left,
             bot_rgt ) {
         return !( ( p.x < top_left.x ) || ( p.x > bot_rgt.x )
                 || ( p.y < top_left.y ) || ( p.y > bot_rgt.y ) );
     };
 
-    static InsideRegion( p, left, top, right, bottom ) {
+    static InsideRegion_4P( p, left, top, right, bottom ) {
         return !( ( p.x < left ) || ( p.x > right ) || ( p.y < top ) || ( p.y > bottom ) );
     };
 

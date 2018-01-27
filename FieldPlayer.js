@@ -72,7 +72,7 @@ class FieldPlayer extends PlayerBase {
         //if no steering force is produced decelerate the player by applying a
         //braking force
         if ( this.m_pSteering.Force().isZero() ) {
-            BrakingRate = 0.8;
+            let BrakingRate = 0.8;
 
             this.m_vVelocity.mul( BrakingRate );
         };

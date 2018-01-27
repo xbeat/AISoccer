@@ -17,7 +17,6 @@ class MovingEntity extends BaseGameEntity {
             turn_rate,
             max_force ) {
 
-        //super( BaseGameEntity.GetNextValidID() );
         super( BaseGameEntity.GetNextValidID() );
 
         this.m_vHeading = new Vector2D( heading );

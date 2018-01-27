@@ -18,14 +18,18 @@ class EntityFunctionTemplates {
     };
 
     static Overlapped( ob, conOb, MinDistBetweenObstacles ) {
-        let it = conOb.listIterator();
 
-        while ( it.hasNext() ) {
-            let curOb = it.next();
-            if (TwoCirclesOverlapped(ob.Pos(),
+        //let it = conOb.listIterator();
+
+        //while ( it.hasNext() ) {
+        //    let curOb = it.next();
+
+       for( let it = 0, size = conOb.length; it < size; it++ ){
+            let curOb = conOb[ it ];
+            if ( TwoCirclesOverlapped( ob.Pos(),
                     ob.BRadius() + MinDistBetweenObstacles,
                     curOb.Pos(),
-                    curOb.BRadius())) {
+                    curOb.BRadius() ) ) {
                 return true;
             };
         };
@@ -38,11 +42,17 @@ class EntityFunctionTemplates {
      * radius of the single entity parameter
      */
     static TagNeighbors( entity, others, radius ) {
-        let it = others.listIterator();
+
+        //let it = others.listIterator();
 
         //iterate through all entities checking for range
-        while ( it.hasNext() ) {
-            let curOb = it.next();
+        //while ( it.hasNext() ) {
+        //    let curOb = it.next();
+
+       for( let it = 0, size = others.length; it < size; it++ ){
+
+            let curOb = others[ it ];
+
             //first clear any current tag
             curOb.UnTag();
 
@@ -68,12 +78,18 @@ class EntityFunctionTemplates {
      * other
      */
     static EnforceNonPenetrationContraint( entity, others ) {
-        let it = others.listIterator();
+
+        //let it = others.listIterator();
 
         //iterate through all entities checking for any overlap of bounding
         //radii
-        while ( it.hasNext() ) {
-            let curOb = it.next();
+        //while ( it.hasNext() ) {
+        //    let curOb = it.next();
+
+       for( let it = 0, size = others.length; it < size; it++ ){
+
+            let curOb = others[ it ];
+
             //make sure we don't check against this entity
             if ( curOb == entity ) {
                 continue;

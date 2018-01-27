@@ -143,11 +143,4 @@ class utils {
         return arg;
     };
 
-    static isEqual( a,  b ) {
-        if ( Math.abs( a - b ) < 1E-12 ) {
-            return true;
-        };
-
-        return false;
-    };
 };

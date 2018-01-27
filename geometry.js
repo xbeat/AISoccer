@@ -259,7 +259,7 @@ class geometry {
 
         if ( Bot == 0 )//parallel
         {
-            if ( isEqual( rTop, 0 ) && isEqual( sTop, 0 ) ) {
+            if ( utils.isEqual( rTop, 0 ) && utils.isEqual( sTop, 0 ) ) {
                 return true;
             }
             return false;

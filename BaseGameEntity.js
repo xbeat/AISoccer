@@ -59,7 +59,7 @@ class BaseGameEntity {
     //virtual void Write(std::ostream&  os)const{}
     //virtual void Read (std::ifstream& is){}
     //use this to grab the next valid ID
-    static GetNextValidID() {        
+    static GetNextValidID() {      
         return window.m_iNextValidID;
     };
 
@@ -104,12 +104,22 @@ class BaseGameEntity {
         return new Vector2D( this.m_vScale );
     };
 
-    SetScale( val ) {
+    static SetScale( A ){
+
+        if ( typeof a  === 'object' ){
+            this.SetScaleV( A );
+        } else {
+            this.SetScaleD( A );
+        };  
+
+    };
+
+    SetScaleV( val ) {
         this.m_dBoundingRadius *= MaxOf(val.x, val.y) / MaxOf( this.m_vScale.x, this.m_vScale.y );
         this.m_vScale = new Vector2D( val );
     };
 
-    SetScale( val ) {
+    SetScaleD( val ) {
         this.m_dBoundingRadius *= ( val / MaxOf( this.m_vScale.x, this.m_vScale.y ) );
         this.m_vScale = new Vector2D( val, tval );
     };

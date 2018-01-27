@@ -32,10 +32,6 @@ class Wall2D {
 
     };
 
-    Wall2D( _in ) {
-        Read( _in );
-    };
-
     Render( RenderNormals = false ) {
         gdi.Line( this.m_vA.x, this.m_vA.y, this.m_vB.x, this.m_vB.y );
 
@@ -78,28 +74,4 @@ class Wall2D {
         return div( add( this.m_vA, this.m_vB ), 2.0 );
     };
 
-    Write( os ) {
-        os.println();
-        os.print( From() + "," );
-        os.print( To() + "," );
-        os.print( Normal() );
-        return os;
-    };
-
-    Read( _in ) {
-        let x, y;
-        let br = new Scanner( _in );
-        x = br.nextDouble();
-        y = br.nextDouble();
-
-        SetFrom( new Vector2D( x, y ) );
-
-        x = br.nextDouble();
-        y = br.nextDouble();
-        SetTo( new Vector2D( x, y ) );
-
-        x = br.nextDouble();
-        y = br.nextDouble();
-        SetNormal( new Vector2D( x, y ) );
-    };
 };

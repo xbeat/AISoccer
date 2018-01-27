@@ -80,7 +80,7 @@ class PlayerBase extends MovingEntity {
     finalize() {
         super.finalize();
         this.m_pSteering = null;
-        new AutoList().remove( this );
+        //new AutoList().remove( this );
     };
 
     static player_role(){

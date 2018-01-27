@@ -54,13 +54,13 @@ var ParamLoader = function() {
   this.GoalKeeperInterceptRange = 100.0;
   this.BallWithinReceivingRange = 10.0;
 
-  this.bStates = false;
-  this.bIDs = false;
-  this.bSupportSpots = false;
-  this.bRegions = false;
+  this.bStates = true;
+  this.bIDs = true;
+  this.bSupportSpots = true;
+  this.bRegions = true;
   this.bShowControllingTeam = true;
   this.bViewTargets = true;
-  this.bHighlightIfThreatened = false;
+  this.bHighlightIfThreatened = true;
 
   this.FrameRate = 60;
 

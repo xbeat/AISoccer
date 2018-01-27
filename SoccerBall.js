@@ -15,11 +15,11 @@ class SoccerBall extends MovingEntity {
         //set up the base class
         super( pos,
                 BallSize,
-                new Vector2D(0, 0),
+                new Vector2D( 0, 0 ),
                 -1.0, //max speed - unused
-                new Vector2D(0, 1),
+                new Vector2D( 0, 1 ),
                 mass,
-                new Vector2D(1.0, 1.0), //scale     - unused
+                new Vector2D( 1.0, 1.0 ), //scale     - unused
                 0, //turn rate - unused
                 0 );                  //max force - unused
 
@@ -83,8 +83,8 @@ class SoccerBall extends MovingEntity {
 
             if ( geometry.LineIntersection2D( walls[ w ].From(),
                     walls[ w ].To(),
-                    Vector2D.sub( ThisCollisionPoint, Vector2D.mul( walls[ w ].Normal(), 20.0) ),
-                    Vector2D.add( ThisCollisionPoint, Vector2D.mul( walls[ w ].Normal(), 20.0) ) ) ) {
+                    Vector2D.sub( ThisCollisionPoint, Vector2D.mul( walls[ w ].Normal(), 20.0 ) ),
+                    Vector2D.add( ThisCollisionPoint, Vector2D.mul( walls[ w ].Normal(), 20.0 ) ) ) ) {
 
                 OnLineSegment = true;
             };
@@ -112,7 +112,7 @@ class SoccerBall extends MovingEntity {
         //before reflecting it. This prevents the case where there is overshoot
         //and the ball gets reflected back over the line before it has completely
         //reentered the playing area.
-        if ( ( idxClosest >= 0) && VelNormal.Dot( walls[ idxClosest ].Normal() ) < 0 ) {
+        if ( ( idxClosest >= 0 ) && VelNormal.Dot( walls[ idxClosest ].Normal() ) < 0 ) {
             this.m_vVelocity.Reflect( walls[ idxClosest ].Normal() );
         };
     };
@@ -124,7 +124,7 @@ class SoccerBall extends MovingEntity {
     Update () {
         //keep a record of the old position so the goal::scored method
         //can utilize it for goal testing
-        let m_vOldPos = new Vector2D( this.m_vPosition );
+        this.m_vOldPos = new Vector2D( this.m_vPosition );
 
         //Test for collisions
         this.TestCollisionWithWalls( this.m_PitchBoundary );
@@ -226,7 +226,7 @@ class SoccerBall extends MovingEntity {
         //u=start velocity
 
         //calculate the ut term, which is a vector
-        let ut = Vector2D.mul( this.m_vVelocity, time);
+        let ut = Vector2D.mul( this.m_vVelocity, time );
 
         //calculate the 1/2at^2 term, which is scalar
         let half_a_t_squared = 0.5 * Prm.Friction * time * time;
@@ -257,9 +257,9 @@ class SoccerBall extends MovingEntity {
      *  zero
      */
     PlaceAtPosition( NewPos ) {
-        let m_vPosition = new Vector2D( NewPos );
+        this.m_vPosition = new Vector2D( NewPos );
 
-        this.m_vOldPos = new Vector2D( m_vPosition );
+        this.m_vOldPos = new Vector2D( this.m_vPosition );
 
         this.m_vVelocity.Zero();
     };

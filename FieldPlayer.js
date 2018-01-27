@@ -160,6 +160,7 @@ class FieldPlayer extends PlayerBase {
         if ( Prm.bViewTargets ) {
             gdi.RedBrush();
             gdi.Circle( this.Steering().Target(), 3 );
+            gdi.TextColor( 0, 170, 0 );
             gdi.TextAtPos( this.Steering().Target(), ttos( this.ID() ) );
         };
     };

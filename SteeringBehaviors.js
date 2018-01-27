@@ -146,7 +146,9 @@ class SteeringBehaviors {
      * this function tests if a specific bit of m_iFlags is set
      */
     On( bt ) {
-        return ( this.m_iFlags & bt.flag() ) == bt.flag();
+        //return ( this.m_iFlags & bt.flag() ) == bt.flag();
+        return ( this.m_iFlags & ( 1 << bt.flag() ) ) == ( 1 << bt.flag() );
+
     };
 
     /**
@@ -297,7 +299,7 @@ class SteeringBehaviors {
             interpose: {
 
                 flag: function() {
-                    return 10;
+                    return 16;
                 }
             }
         };
@@ -401,53 +403,53 @@ class SteeringBehaviors {
     };
 
     SeekOn() {
-        this.m_iFlags = this.behavior_type.seek.flag() | this.behavior_type.seek.flag();
+        this.m_iFlags |= ( 1 << this.behavior_type.seek.flag() );
     };
 
     ArriveOn() {
-        this.m_iFlags = this.behavior_type.arrive.flag() | this.behavior_type.arrive.flag();
+        this.m_iFlags |= ( 1 << this.behavior_type.arrive.flag() );
     };
 
     PursuitOn() {
-        this.m_iFlags = this.behavior_type.pursuit.flag() | this.behavior_type.arrive.flag();
+        this.m_iFlags |= ( 1 << this.behavior_type.pursuit.flag() );
     };
 
     SeparationOn() {
-        this.m_iFlags = this.behavior_type.separation.flag() | this.behavior_type.arrive.flag();
+        this.m_iFlags |= ( 1 << this.behavior_type.separation.flag() );
     };
 
     InterposeOn( d ) {
-        this.m_iFlags = this.behavior_type.interpose.flag() | this.behavior_type.arrive.flag();
+        this.m_iFlags |= ( 1 << this.behavior_type.interpose.flag() );
         this.m_dInterposeDist = d;
     };
 
     SeekOff() {
         if ( this.On( this.behavior_type.seek ) ) {
-            this.m_iFlags = this.behavior_type.seek.flag() ^ this.behavior_type.seek.flag();
+            this.m_iFlags ^= ( 1 << this.behavior_type.seek.flag() );
         };
     };
 
     ArriveOff() {
         if ( this.On( this.behavior_type.arrive ) ) {
-            this.m_iFlags = this.behavior_type.arrive.flag() ^ this.behavior_type.arrive.flag();
+            this.m_iFlags ^= ( 1 << this.behavior_type.arrive.flag() );
         };
     };
 
     PursuitOff() {
         if ( this.On( this.behavior_type.pursuit ) ) {
-            this.m_iFlags = this.behavior_type.pursuit.flag() ^ this.behavior_type.pursuit.flag();
+            this.m_iFlags ^= ( 1 << this.behavior_type.pursuit.flag() );
         };
     };
 
     SeparationOff() {
         if ( this.On( this.behavior_type.separation ) ) {
-            this.m_iFlags = this.behavior_type.separation.flag() ^ this.behavior_type.separation.flag();
+            this.m_iFlags ^= ( 1 << this.behavior_type.separation.flag() );
         };
     };
 
     InterposeOff() {
         if ( this.On( this.behavior_type.interpose ) ) {
-            this.m_iFlags = this.behavior_type.interpose.flag() ^ this.behavior_type.interpose.flag();
+            this.m_iFlags ^= ( 1 << this.behavior_type.interpose.flag() );
         };
     };
 

@@ -158,7 +158,7 @@ class PlayerBase extends MovingEntity {
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     this.ID(),
                     this.Team().SupportingPlayer().ID(),
-                    window.MessageTypes.Msg_SupportAttacker,
+                    Global.MessageTypes.Msg_SupportAttacker,
                     null );
         };
 
@@ -173,7 +173,7 @@ class PlayerBase extends MovingEntity {
                 Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                         this.ID(),
                         this.Team().SupportingPlayer().ID(),
-                        window.MessageTypes.Msg_GoHome,
+                        Global.MessageTypes.Msg_GoHome,
                         null );
             };
 
@@ -182,7 +182,7 @@ class PlayerBase extends MovingEntity {
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     this.ID(),
                     this.Team().SupportingPlayer().ID(),
-                    window.MessageTypes.Msg_SupportAttacker,
+                    Global.MessageTypes.Msg_SupportAttacker,
                     null );
         };
     };

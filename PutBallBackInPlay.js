@@ -24,16 +24,16 @@ class PutBallBackInPlay {
         let receiver = null;
         let BallTarget = new Vector2D();
 
-        //window.receiverRef = new Object();
+        //Global.receiverRef = new Object();
 
         //test if there are players further forward on the field we might
         //be able to pass to. If so, make a pass.
         if ( keeper.Team().FindPass( keeper,
-                receiverRef,
+                Global.receiverRef,
                 BallTarget,
                 Prm.MaxPassingForce,
                 Prm.GoalkeeperMinPassDist ) ) {
-            receiver = window.receiverRef;
+            receiver = Global.receiverRef;
             //make the pass   
             keeper.Ball().Kick( Vector2D.Vec2DNormalize( Vector2D.sub( BallTarget, keeper.Ball().Pos() ) ),
                     Prm.MaxPassingForce );
@@ -45,7 +45,7 @@ class PutBallBackInPlay {
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     keeper.ID(),
                     receiver.ID(),
-                    window.MessageTypes.Msg_ReceiveBall,
+                    Global.MessageTypes.Msg_ReceiveBall,
                     BallTarget );
 
             //go back to tending the goal   

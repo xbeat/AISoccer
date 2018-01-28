@@ -89,9 +89,9 @@ class SteeringBehaviors {
         //while ( it.hasNext() ) {
         //    let curPlyr = it.next();
 
-        for( let it = 0, size = window.AllPlayers.length; it < size; it++ ){
+        for( let it = 0, size = Global.AllPlayers.length; it < size; it++ ){
             
-            let curPlyr = window.AllPlayers[ it ];      
+            let curPlyr = Global.AllPlayers[ it ];      
             //make sure this agent isn't included in the calculations and that
             //the agent is close enough
             if ( ( curPlyr != this.m_pPlayer ) && curPlyr.Steering().Tagged() ) {
@@ -126,9 +126,9 @@ class SteeringBehaviors {
         //while ( it.hasNext() ) {
         //    let curPlyr = it.next();
 
-        for( let it = 0, size = window.AllPlayers.length; it < size; it++ ){
+        for( let it = 0, size = Global.AllPlayers.length; it < size; it++ ){
             
-            let curPlyr = window.AllPlayers[ it ];
+            let curPlyr = Global.AllPlayers[ it ];
 
             //first clear any current tag
             curPlyr.Steering().UnTag();

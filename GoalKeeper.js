@@ -69,7 +69,7 @@ class GoalKeeper extends PlayerBase {
 
         //enforce a non-penetration constraint if desired
         if ( Prm.bNonPenetrationConstraint ) {
-            EnforceNonPenetrationContraint( this, window.AllPlayers );
+            EnforceNonPenetrationContraint( this, Global.AllPlayers );
         };
 
         //update the heading if the player has a non zero velocity

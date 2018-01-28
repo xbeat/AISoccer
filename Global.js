@@ -19,6 +19,15 @@ let ttos = function( s ){
 };
 
 //----------- Globals
-window.receiverRef = new Object();
-window.m_iNextValidID = 0;
-window.AllPlayers = new Array();
+class Global{};
+Global.receiverRef = new Object();
+Global.m_iNextValidID = 0;
+Global.AllPlayers = new Array();
+Global.MessageTypes = {
+    Msg_ReceiveBall: "Msg_ReceiveBall",
+    Msg_PassToMe: "Msg_PassToMe",
+    Msg_SupportAttacker: "Msg_SupportAttacker",
+    Msg_GoHome: "Msg_GoHome",
+    Msg_Wait: "Msg_Wait",
+    default:"INVALID MESSAGE!!"
+};

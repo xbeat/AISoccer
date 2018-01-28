@@ -151,7 +151,7 @@ class SoccerTeam {
         //};
         for( let it = 0, size = this.m_Players.length; it < size; it++ ){
            EntityMgr.RegisterEntity( this.m_Players[ it ] );
-           window.AllPlayers.push( this.m_Players[ it ] );
+           Global.AllPlayers.push( this.m_Players[ it ] );
         };
 
     };
@@ -394,7 +394,7 @@ class SoccerTeam {
                 Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     1,
                     cur.ID(),
-                    window.MessageTypes.Msg_GoHome,
+                    Global.MessageTypes.Msg_GoHome,
                     null );
             };
         };
@@ -499,7 +499,7 @@ class SoccerTeam {
                         let ClosestToGoalSoFar = Dist2Goal;
 
                         //keep a record of this player
-                        window.receiverRef = curPlyr;                        
+                        Global.receiverRef = curPlyr;                        
                         //receiver = curPlyr;
 
                         //and the target
@@ -735,7 +735,7 @@ class SoccerTeam {
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     requester.ID(),
                     this.ControllingPlayer().ID(),
-                    window.MessageTypes.Msg_PassToMe,
+                    Global.MessageTypes.Msg_PassToMe,
                     requester );
 
         };

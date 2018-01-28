@@ -28,7 +28,7 @@ class GlobalPlayerState {
 
     OnMessage( player, telegram ) {
         switch ( telegram.Msg ) {
-            case  window.MessageTypes.Msg_ReceiveBall:
+            case  Global.MessageTypes.Msg_ReceiveBall:
                 //set the target
                 player.Steering().SetTarget( telegram.ExtraInfo );
 
@@ -38,7 +38,7 @@ class GlobalPlayerState {
                 return true;
             break;
 
-            case window.MessageTypes.Msg_SupportAttacker:
+            case Global.MessageTypes.Msg_SupportAttacker:
                 //if already supporting just return
                 if ( player.GetFSM().isInState( SupportAttacker.Instance() ) ) {
                     return true;
@@ -53,14 +53,14 @@ class GlobalPlayerState {
                 return true;
             break;
 
-            case window.MessageTypes.Msg_Wait:
+            case Global.MessageTypes.Msg_Wait:
                 //change the state
                 player.GetFSM().ChangeState( Wait.Instance() );
 
                 return true;
            break;
 
-            case window.MessageTypes.Msg_GoHome:
+            case Global.MessageTypes.Msg_GoHome:
                 player.SetDefaultHomeRegion();
 
                 player.GetFSM().ChangeState( ReturnToHomeRegion.Instance() );
@@ -69,7 +69,7 @@ class GlobalPlayerState {
 
             break;
 
-            case window.MessageTypes.Msg_PassToMe:
+            case Global.MessageTypes.Msg_PassToMe:
                 //get the position of the player requesting the pass 
                 let receiver = telegram.ExtraInfo;
 
@@ -102,7 +102,7 @@ class GlobalPlayerState {
                 Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                         player.ID(),
                         receiver.ID(),
-                        window.MessageTypes.Msg_ReceiveBall,
+                        Global.MessageTypes.Msg_ReceiveBall,
                         receiver.Pos() );
 
                 //change state   

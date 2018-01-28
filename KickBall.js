@@ -94,15 +94,15 @@ class KickBall {
 
         power = Prm.MaxPassingForce * dot;
 
-        //window.receiverRef = new Object();
+        //Global.receiverRef = new Object();
         //test if there are any potential candidates available to receive a pass
         if ( player.isThreatened()
                 && player.Team().FindPass( player,
-                window.receiverRef,
+                Global.receiverRef,
                 BallTarget,
                 power,
                 Prm.MinPassDist ) ) {
-            receiver = window.receiverRef;
+            receiver = Global.receiverRef;
             //add some noise to the kick
             BallTarget = SoccerBall.AddNoiseToKick( player.Ball().Pos(), BallTarget );
 
@@ -118,7 +118,7 @@ class KickBall {
             Dispatcher.DispatchMsg( Dispatcher.SEND_MSG_IMMEDIATELY,
                     player.ID(),
                     receiver.ID(),
-                    window.MessageTypes.Msg_ReceiveBall,
+                    Global.MessageTypes.Msg_ReceiveBall,
                     BallTarget );
 
 

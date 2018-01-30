@@ -1,15 +1,163 @@
 <html>
 	<link rel="shortcut icon" href="">
+	<head>
+		<style>
+			.switch-field {
+				font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
+				padding: 2px;
+				margin-left: 20px;
+				overflow: hidden;
+			}
+
+			.switch-title {
+				margin-bottom: 6px;
+			}
+
+			.switch-field input {
+			    position: absolute !important;
+			    clip: rect(0, 0, 0, 0);
+			    height: 1px;
+			    width: 1px;
+			    border: 0;
+			    overflow: hidden;
+			}
+
+			.switch-field label {
+			  float: left;
+			  display: inline-block;
+			  width: 60px;
+			  background-color: #e4e4e4;
+			  color: rgba(0, 0, 0, 0.6);
+			  font-size: 14px;
+			  font-weight: normal;
+			  text-align: center;
+			  text-shadow: none;
+			  padding: 6px 14px;
+			  border: 1px solid rgba(0, 0, 0, 0.2);
+			  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+			  transition: all 0.1s ease-in-out;
+			}
+
+			.switch-field label:hover {
+				cursor: pointer;
+			}
+
+			.switch-field input:checked + label {
+			  background-color: #A5DC86;
+			  box-shadow: none;
+			}
+
+			.switch-field label:first-of-type {
+			  border-radius: 4px 0 0 4px;
+			}
+
+			.switch-field label:last-of-type {
+			  border-radius: 0 4px 4px 0;
+			}
+
+			.form{
+				position: absolute;
+				top: 440px;
+				left: 0px;
+			}
+
+			button {
+				font-size: 0.9em;
+				font-familly: "Open Sans", sans-serif;
+				color: white;
+				background-color: #3498db;
+				border: none;
+				outline: none;
+				border-radius: 0.3em;
+				padding: 0.7em 0.8em;
+				margin: 0.3em;
+				cursor: pointer;
+				width:150px;
+				z-index:1;
+			}
+
+			button:hover {
+				background-color: #2980b9;
+			}
+
+			button:active {
+				background-color: #22638e;
+			}
+
+		</style>
+	</head>
 	<body>
-		<button onClick="pause()">Stop RAF</button>
+		<form class="form">
+			<button type="button" onClick="pause()">Stop RAF</button>
+
+		    <div class="switch-field">
+		      <div class="switch-title">Pause Raf</div>
+		      <input type="radio" id="switch_raf_on" onclick = "EXECUTERAF = true" name="switch_raf" value="on" checked/>
+		      <label for="switch_raf_on">On</label>
+		      <input type="radio" id="switch_raf_off" onclick = "EXECUTERAF = false" name="switch_raf" value="off" />
+		      <label for="switch_raf_off">Off</label>
+		    </div>
+
+		    <div class="switch-field">
+		      <div class="switch-title">Show IDs</div>
+		      <input type="radio" id="switch_ids_on" onclick = "Prm.bIDs = true" name="switch_ids" value="on" checked/>
+		      <label for="switch_ids_on">On</label>
+		      <input type="radio" id="switch_ids_off" onclick = "Prm.bIDs = false" name="switch_ids" value="off" />
+		      <label for="switch_ids_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Show States</div>
+		      <input type="radio" id="switch_states_on" onclick = "Prm.bStates = true" onclick="" name="switch_states" value="on" checked/>
+		      <label for="switch_states_on">On</label>
+		      <input type="radio" id="switch_states_off" onclick = "Prm.bStates = false" onclick="" name="switch_states" value="off" />
+		      <label for="switch_states_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Show Regions</div>
+		      <input type="radio" id="switch_regions_on" onclick = "Prm.bRegions = true" onclick="" name="switch_regions" value="on" checked/>
+		      <label for="switch_regions_on">On</label>
+		      <input type="radio" id="switch_regions_off" onclick = "Prm.bRegions = false" name="switch_regions" value="off" />
+		      <label for="switch_regions_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Show Support Spots</div>
+		      <input type="radio" id="switch_support_on" onclick = "Prm.bSupportSpots = true" onclick="" name="switch_support" value="on" checked/>
+		      <label for="switch_support_on">On</label>
+		      <input type="radio" id="switch_support_off" onclick = "Prm.bSupportSpots = false" name="switch_support" value="off" />
+		      <label for="switch_support_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Show Targets</div>
+		      <input type="radio" id="switch_targets_on" onclick = "Prm.bViewTargets = true" onclick="" name="switch_targets" value="on" checked/>
+		      <label for="switch_targets_on">On</label>
+		      <input type="radio" id="switch_targets_off" onclick = "Prm.bViewTargets = false" name="switch_targets" value="off" />
+		      <label for="switch_targets_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Highlight if Threatened</div>
+		      <input type="radio" id="switch_threatened_on" onclick = "Prm.bHighlightIfThreatened = true" onclick="" name="switch_threatened" value="on" checked/>
+		      <label for="switch_threatened_on">On</label>
+		      <input type="radio" id="switch_threatened_off" onclick = "Prm.bHighlightIfThreatened = false" name="switch_threatened" value="off" />
+		      <label for="switch_threatened_off">Off</label>
+		    </div>
+
+		</form>
 	</body>
 </html>
 
 <script>
-"use strict";
-function pause(){
-	cancelAnimationFrame( RAF );
-};
+	"use strict";
+	function pause(){
+		cancelAnimationFrame( RAF );
+	};
+
+	var selects = document.getElementsByClassName( "onoffbtn" );
+	for( let i = 0, il = selects.length; i < il; i++ ){
+		selects[i].addEventListener( "click", function(){
+			if ( this.classList  )
+			this.classList.toggle("active");
+		});
+	};
 </script>
 
 <!-- Globals -->
@@ -122,6 +270,7 @@ function pause(){
     //--------------- upodate ---------------
     let timer = new PrecisionTimer();
     let RAF;
+    let EXECUTERAF = true;
     //start the timer
     timer.Start();
 
@@ -132,12 +281,13 @@ function pause(){
 	    //update
 	    if ( timer.ReadyForNextFrame() ) {
 	    	
-	        g_SoccerPitch.Update();
-	        //render
-	        g_SoccerPitch.Render();
-	        //panel.revalidate();
-	        //panel.repaint();
-
+	    	if ( EXECUTERAF === true ){
+		        g_SoccerPitch.Update();
+		        //render
+		        g_SoccerPitch.Render();
+		        //panel.revalidate();
+		        //panel.repaint();
+	    	};
 	    };
 		
 	}());

@@ -131,7 +131,7 @@ class utils {
 
     //returns the maximum of two values
     static MaxOf( a,  b ) {
-        if ( a.compareTo( b ) > 0 ) {
+        if ( a > b ) {
             return a;
         };
         return b;
@@ -139,7 +139,7 @@ class utils {
 
     //returns the minimum of two values
     static MinOf( a,  b ) {
-        if ( a.compareTo( b ) < 0) {
+        if ( a < b ) {
             return a;
         };
         return b;

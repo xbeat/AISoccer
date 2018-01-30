@@ -1,5 +1,5 @@
 /**
- *  Desc:   Class to determine the best spots for a suppoting soccer
+ *  Desc:   Class to determine the best spots for a supporting soccer
  *          player to move to.
  * 
  */

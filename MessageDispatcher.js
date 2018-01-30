@@ -37,12 +37,12 @@ class MessageDispatcher {
     };
 
     clone() {
-        throw new Error("Cloning MessageDispatcher not allowed");
+        throw new Error( "Cloning MessageDispatcher not allowed" );
     };
 
     //this class is a singleton
     static Instance() {
-        return new Dispatcher();
+        return new MessageDispatcher();
     };
 
     /**
@@ -68,7 +68,7 @@ class MessageDispatcher {
 
         //make sure the receiver is valid
         if ( pReceiver == null ) {
-            if ( def( this.SHOW_MESSAGING_INFO ) ) {
+            if ( def( SHOW_MESSAGING_INFO ) ) {
                 console.log( "\nWarning! No Receiver with ID of " + receiver + " found" );
             };
 
@@ -80,7 +80,7 @@ class MessageDispatcher {
 
         //if there is no delay, route telegram immediately                       
         if ( delay <= 0.0 ) {
-            if ( def( this.SHOW_MESSAGING_INFO ) ) {
+            if ( def( SHOW_MESSAGING_INFO ) ) {
                console.log("\nTelegram dispatched at time: " + TickCounter.GetCurrentFrame() + " by " + sender + " for " +  receiver + ". Msg is " + msg );
             };
             //send the telegram to the recipient
@@ -94,7 +94,7 @@ class MessageDispatcher {
             //and put it in the queue
             this.PriorityQ.add( telegram );
 
-            if ( def( this.SHOW_MESSAGING_INFO ) ) {
+            if ( def( SHOW_MESSAGING_INFO ) ) {
                 console.log( " \nDelayed telegram from " + sender + " recorded at time " + TickCounter.GetCurrentFrame() + " for " +  receiver + ". Msg is " + msg );
             };
         };
@@ -120,7 +120,7 @@ class MessageDispatcher {
             //find the recipient
             let pReceiver = EntityMgr.GetEntityFromID( telegram.Receiver );
 
-            if ( def( this.SHOW_MESSAGING_INFO ) ) {
+            if ( def( SHOW_MESSAGING_INFO ) ) {
                 console.log( "\nQueued telegram ready for dispatch: Sent to " + pReceiver.ID() + ". Msg is " + telegram.Msg );
             };
 

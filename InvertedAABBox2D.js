@@ -46,9 +46,9 @@ class InvertedAABBox2D {
         return this.m_vCenter;
     };
 
-    Render() {
-        Render( false );
-    };
+    //Render() {
+    //    Render( false );
+    //};
 
     Render( RenderCenter ) {
         gdi.Line( Left(), Top(), Right(), Top() );

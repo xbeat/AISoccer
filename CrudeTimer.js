@@ -1,5 +1,5 @@
 /**
- * CrudeTimer,js
+ * CrudeTimer.js
  */
 
 class CrudeTimer {
@@ -26,6 +26,6 @@ class CrudeTimer {
         //return System.currentTimeMillis() * 0.001 - m_dStartTime;
         // The truncation of the results was added to produce results similar to what is produced by the C++ code
         // Improved by A.Rick Anderson
-        return ( ( Math.round( ( System.currentTimeMillis() * 0.001 - this.m_dStartTime ) * 1000 ) ) ) / 1000;
+        return ( ( Math.round( ( Date().getTime() * 0.001 - this.m_dStartTime ) * 1000 ) ) ) / 1000;
     };
 };

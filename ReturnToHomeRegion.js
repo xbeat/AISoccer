@@ -19,7 +19,7 @@ class ReturnToHomeRegion  {
         }
 
         if ( def( PLAYER_STATE_INFO_ON ) ) {
-            console.log("Player ") + player.ID() + " enters ReturnToHome state";
+            console.log("Player " + player.ID() + " enters ReturnToHome state" );
         };
     };
 

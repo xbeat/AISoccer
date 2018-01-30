@@ -42,7 +42,7 @@ class GlobalPlayerState {
                 //if already supporting just return
                 if ( player.GetFSM().isInState( SupportAttacker.Instance() ) ) {
                     return true;
-                }
+                };
 
                 //set the target to be the best supporting position
                 player.Steering().SetTarget( player.Team().GetSupportSpot() );

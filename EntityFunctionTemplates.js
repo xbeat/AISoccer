@@ -13,11 +13,29 @@ class EntityFunctionTemplates {
      *  tests to see if an entity is overlapping any of a number of entities
      *  stored in a std container
      */
-    static Overlapped( ob, conOb ) {
+
+    static Overlapped( A,
+                        B,
+                        C ){
+
+        switch( arguments.length ) {
+            case 2:
+                return this.Overlapped_2P( A, B );
+                break;
+            case 3:
+                return this.Overlapped_3P( A, B, C );
+                break;
+            default:
+                console.log( " Overlapped function overload error ");
+        };
+
+    };
+
+    static Overlapped_2P( ob, conOb ) {
         return Overlapped( ob, conOb, 40.0 );
     };
 
-    static Overlapped( ob, conOb, MinDistBetweenObstacles ) {
+    static Overlapped_3P( ob, conOb, MinDistBetweenObstacles ) {
 
         //let it = conOb.listIterator();
 

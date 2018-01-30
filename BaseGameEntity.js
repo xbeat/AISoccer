@@ -34,7 +34,7 @@ class BaseGameEntity {
    
         // the magnitude of this object's bounding radius
         this.m_dBoundingRadius = 0.0;
-        this.m_vScale = new Vector2D(1.0, 1.0);
+        this.m_vScale = new Vector2D( 1.0, 1.0 );
         //every entity has a type associated with it (health, troll, ammo etc)
         this.m_iType = this.default_entity_type;
         //this is a generic flag. 
@@ -115,13 +115,13 @@ class BaseGameEntity {
     };
 
     SetScaleV( val ) {
-        this.m_dBoundingRadius *= MaxOf(val.x, val.y) / MaxOf( this.m_vScale.x, this.m_vScale.y );
+        this.m_dBoundingRadius *= utils.MaxOf( val.x, val.y ) / utils.MaxOf( this.m_vScale.x, this.m_vScale.y );
         this.m_vScale = new Vector2D( val );
     };
 
     SetScaleD( val ) {
-        this.m_dBoundingRadius *= ( val / MaxOf( this.m_vScale.x, this.m_vScale.y ) );
-        this.m_vScale = new Vector2D( val, tval );
+        this.m_dBoundingRadius *= ( val / utils.MaxOf( this.m_vScale.x, this.m_vScale.y ) );
+        this.m_vScale = new Vector2D( val, val );
     };
 
     EntityType() {

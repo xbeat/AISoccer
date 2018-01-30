@@ -24,9 +24,9 @@ class Vector2D {
         };    
     };
 
-    Vector2D( v ) {        
-        this.set(v);
-    };
+    //Vector2D( v ) {        
+    //    this.set(v);
+    //};
 
     set( v ) {
         this.x = v.x;
@@ -191,7 +191,7 @@ class Vector2D {
     };
     // operator !=
 
-    notEqual( rhs ) {
+    static notEqual( rhs ) {
         return ( this.x != rhs.x ) || ( this.y != rhs.y );
     };
 
@@ -306,7 +306,7 @@ class Vector2D {
     };
 
     static VectorToPOINTS( v ) {
-        let p = new POINTS();
+        let p = new POINT();
         p.x = v.x;
         p.y = v.y;
 

@@ -129,7 +129,7 @@ class geometry {
         let dotA = ( P.x - A.x ) * ( B.x - A.x ) + ( P.y - A.y ) * ( B.y - A.y );
 
         if ( dotA <= 0 ) {
-            return Vec2DDistance( A, P );
+            return Vector2D.Vec2DDistance( A, P );
         };
 
         //if the angle is obtuse between PB and AB is obtuse then the closest
@@ -137,7 +137,7 @@ class geometry {
         let dotB = ( P.x - B.x ) * ( A.x - B.x ) + ( P.y - B.y ) * ( A.y - B.y );
 
         if ( dotB <= 0 ) {
-            return Vec2DDistance( B, P );
+            return Vector2D.Vec2DDistance( B, P );
         };
 
         //calculate the point along AB that is the closest to P
@@ -145,7 +145,7 @@ class geometry {
         let Point = add( A, ( div( mul( sub( B, A ), dotA ), ( dotA + dotB ) ) ) );
 
         //calculate the distance P-Point
-        return Vec2DDistance( P, Point );
+        return Vector2D.Vec2DDistance( P, Point );
     };
 
     /**
@@ -159,7 +159,7 @@ class geometry {
         let dotA = ( P.x - A.x ) * ( B.x - A.x ) + ( P.y - A.y ) * ( B.y - A.y );
 
         if ( dotA <= 0 ) {
-            return Vec2DDistanceSq( A, P );
+            return Vector2D.Vec2DDistanceSq( A, P );
         };
 
         //if the angle is obtuse between PB and AB is obtuse then the closest
@@ -167,7 +167,7 @@ class geometry {
         let dotB = ( P.x - B.x ) * ( A.x - B.x ) + ( P.y - B.y ) * ( A.y - B.y );
 
         if ( dotB <= 0 ) {
-            return Vec2DDistanceSq( B, P );
+            return Vector2D.Vec2DDistanceSq( B, P );
         };
 
         //calculate the point along AB that is the closest to P
@@ -175,7 +175,7 @@ class geometry {
         let Point = add( A, ( div( mul( sub( B, A ), dotA ), ( dotA + dotB ) ) ) );
 
         //calculate the distance P-Point
-        return Vec2DDistanceSq( P, Point );
+        return Vector2D.Vec2DDistanceSq( P, Point );
     };
 
     /**
@@ -206,7 +206,6 @@ class geometry {
         };
 
      };
-
 
     /**
      *  Given 2 lines in 2D space AB, CD this returns true if an 
@@ -322,7 +321,7 @@ class geometry {
     /**
      *  tests two polygons for intersection. *Does not check for enclosure*
      */
-     static  ObjectIntersection2D( object1,
+     static ObjectIntersection2D( object1,
              object2 ) {
         //test each line segment of object1 against each segment of object2
         for ( let r = 0; r < object1.size() - 1; ++r ) {
@@ -356,10 +355,31 @@ class geometry {
         return false;
     };
 
+     static TwoCirclesOverlapped( A,
+                        B,
+                        C,
+                        D,
+                        E,
+                        F ){
+
+
+        switch( arguments.length ) {
+            case 4:
+                return this.TwoCirclesOverlapped_4P( A, B, C, D );
+                break;
+            case 6:
+                return this.TwoCirclesOverlapped_6P( A, B, C, D, E, F );
+                break;
+            default:
+                console.log( " Geometry line intersection function overload error ");
+        };
+
+     };
+
     /**
      *  Returns true if the two circles overlap
      */
-    static TwoCirclesOverlapped( x1,  y1, r1,
+    static TwoCirclesOverlapped_6P( x1,  y1, r1,
              x2,  y2, r2 ) {
         let DistBetweenCenters = Math.sqrt( ( x1 - x2 ) * ( x1 - x2 )
                 + ( y1 - y2 ) * ( y1 - y2 ) );
@@ -374,7 +394,7 @@ class geometry {
     /**
      * Returns true if the two circles overlap
      */
-     static TwoCirclesOverlapped( c1, r1,
+     static TwoCirclesOverlapped_4P( c1, r1,
             c2, r2 ) {
         let DistBetweenCenters = Math.sqrt( ( c1.x - c2.x ) * ( c1.x - c2.x )
                 + ( c1.y - c2.y ) * ( c1.y - c2.y ) );

@@ -468,6 +468,13 @@ class SoccerTeam {
         //assert ( receiver != null );
         //assert ( PassTarget != null );
 
+        if ( !( receiver != null ) ) {
+            console.log( "Findpass receiver is null" );
+        };
+        if ( !( PassTarget != null ) ) {
+            console.log( "Findpass PassTarget is null" );
+        };
+
         //let it = Members().listIterator();
         let it = this.Members();
 
@@ -875,6 +882,9 @@ class SoccerTeam {
 
     SetPlayerHomeRegion( plyr, region ) {
         //assert ( ( plyr >= 0 ) && ( plyr < m_Players.size() ) );
+        if ( !( plyr >= 0 ) && ( plyr < m_Players.size() ) ){
+            console.log ( " SetPlayerHomeRegion plyr index out of range " );
+        }
 
         this.m_Players[ plyr ].SetHomeRegion( region );
     };

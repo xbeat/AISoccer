@@ -13,10 +13,10 @@ class Dribble {
 
     Enter( player ) {
         //let the team know this player is controlling
-        player.Team().SetControllingPlayer(player);
+        player.Team().SetControllingPlayer( player );
 
         if ( def( PLAYER_STATE_INFO_ON ) ) {
-            console.log("Player ") + player.ID() + " enters dribble state";
+            console.log( "Player " + player.ID() + " enters dribble state" );
         };
     };
 
@@ -43,15 +43,15 @@ class Dribble {
             //ball and turn at the same time
             let KickingForce = 0.8;
 
-            player.Ball().Kick(direction, KickingForce);
+            player.Ball().Kick( direction, KickingForce );
         }  //kick the ball down the field
         else {
-            player.Ball().Kick(player.Team().HomeGoal().Facing(),
-                    Prm.MaxDribbleForce);
+            player.Ball().Kick( player.Team().HomeGoal().Facing(),
+                    Prm.MaxDribbleForce );
         };
 
         //the player has kicked the ball so he must now change state to follow it
-        player.GetFSM().ChangeState(ChaseBall.Instance());
+        player.GetFSM().ChangeState( ChaseBall.Instance() );
 
         return;
     };

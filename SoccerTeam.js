@@ -471,10 +471,10 @@ class SoccerTeam {
         //assert ( PassTarget != null );
 
         if ( !( receiver != null ) ) {
-            console.log( "Findpass receiver is null" );
+            //console.log( "Findpass receiver is null" );
         };
         if ( !( PassTarget != null ) ) {
-            console.log( "Findpass PassTarget is null" );
+            //console.log( "Findpass PassTarget is null" );
         };
 
         //let it = Members().listIterator();
@@ -507,13 +507,13 @@ class SoccerTeam {
                     if ( Dist2Goal < ClosestToGoalSoFar ) {
                         let ClosestToGoalSoFar = Dist2Goal;
 
+
                         //keep a record of this player
-                        Global.receiverRef = curPlyr;                        
-                        //receiver = curPlyr;
+                        //receiver.set( curPlyr );
+                        Global.objReceiverRef = curPlyr;
 
                         //and the target
-                        PassTarget = Object.assign( {}, Target );
-                        //PassTarget = Target;
+                        PassTarget.set( Target );
 
                         finded = true;
                     };

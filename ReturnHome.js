@@ -28,7 +28,7 @@ class ReturnHome {
         //if close enough to home or the opponents get control over the ball,
         //change state to tend goal
         if ( keeper.InHomeRegion() || !keeper.Team().InControl() ) {
-            keeper.GetFSM().ChangeState(TendGoal.Instance() );
+            keeper.GetFSM().ChangeState( TendGoal.Instance() );
         };
     };
 

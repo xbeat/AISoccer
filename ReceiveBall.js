@@ -35,13 +35,13 @@ class ReceiveBall {
             player.Steering().ArriveOn();
 
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                console.log("Player " + player.ID() + " enters receive state (Using Arrive)" );
+                console.log( "Player " + player.ID() + " enters receive state (Using Arrive)" );
             }
         } else {
             player.Steering().PursuitOn();
 
             if ( def( PLAYER_STATE_INFO_ON ) ) {
-                console.log("Player " + player.ID() + " enters receive state (Using Pursuit)" );
+                console.log( "Player " + player.ID() + " enters receive state (Using Pursuit)" );
             };
         };
 
@@ -51,13 +51,13 @@ class ReceiveBall {
         //if the ball comes close enough to the player or if his team lose control
         //he should change state to chase the ball
         if ( player.BallWithinReceivingRange() || !player.Team().InControl() ) {
-            player.GetFSM().ChangeState(ChaseBall.Instance() );
+            player.GetFSM().ChangeState( ChaseBall.Instance() );
 
             return;
         };
 
         if ( player.Steering().PursuitIsOn() ) {
-            player.Steering().SetTarget(player.Ball().Pos() );
+            player.Steering().SetTarget( player.Ball().Pos() );
         };
 
         //if the player has 'arrived' at the steering target he should wait and
@@ -66,7 +66,7 @@ class ReceiveBall {
             player.Steering().ArriveOff();
             player.Steering().PursuitOff();
             player.TrackBall();
-            player.SetVelocity(new Vector2D(0, 0) );
+            player.SetVelocity( new Vector2D( 0, 0 ) );
         };
     };
 

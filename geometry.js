@@ -59,7 +59,7 @@ class geometry {
                          RayHeading,
                          CircleOrigin,
                          radius ) {
-        let ToCircle = sub( CircleOrigin, RayOrigin );
+        let ToCircle = Vector2D.sub( CircleOrigin, RayOrigin );
         let length = ToCircle.Length();
         let v = ToCircle.Dot( RayHeading );
         let d = radius * radius - ( length * length - v * v );
@@ -81,7 +81,7 @@ class geometry {
                         CircleOrigin,
                         radius ) {
 
-        let ToCircle = sub( CircleOrigin, RayOrigin );
+        let ToCircle = Vector2D.sub( CircleOrigin, RayOrigin );
         let length = ToCircle.Length();
         let v = ToCircle.Dot( RayHeading );
         let d = radius * radius - ( length * length - v * v );
@@ -268,11 +268,13 @@ class geometry {
         let s = sTop / Bot;
 
         if ( ( r > 0 ) && ( r < 1 ) && ( s > 0 ) && ( s < 1 ) ) {
-            dist.set( Vec2DDistance( A, B ) * r );
+            //dist.set( Vec2DDistance( A, B ) * r );
+            dist = ( Vector2D.Vec2DDistance( A, B ) * r );
 
             return true;
         } else {
-            dist.set(0.0);
+            //dist.set(0.0);
+            dist = 0.0;
 
             return false;
         };
@@ -306,13 +308,15 @@ class geometry {
         let s = sTop / sBot;
 
         if ( ( r > 0 ) && ( r < 1 ) && ( s > 0 ) && ( s < 1 ) ) {
-            dist.set( Vec2DDistance( A, B ) * r );
+            //dist.set( Vector2D.Vec2DDistance( A, B ) * r );
+            dist = ( Vector2D.Vec2DDistance( A, B ) * r );
 
-            point.set( add( A, mul( r, sub( B, A ) ) ) );
+            point.set( Vector2D.add( A, Vector2D.mul( r, Vector2D.sub( B, A ) ) ) );
 
             return true;
         } else {
-            dist.set( 0.0 );
+            //dist.set( 0.0 );
+            dist =  0.0;
 
             return false;
         };
@@ -459,15 +463,20 @@ class geometry {
         //calculate first point
         let h1 = Math.sqrt( ( r1 * r1 ) - ( a * a ) );
 
-        p3X.set( p2X - h1 * ( y2 - y1 ) / d );
-        p3Y.set( p2Y + h1 * ( x2 - x1 ) / d );
+        //p3X.set( p2X - h1 * ( y2 - y1 ) / d );
+        //p3Y.set( p2Y + h1 * ( x2 - x1 ) / d );
 
+        p3X = ( p2X - h1 * ( y2 - y1 ) / d );
+        p3Y = ( p2Y + h1 * ( x2 - x1 ) / d );
 
         //calculate second point
         let h2 = Math.sqrt( ( r2 * r2 ) - ( a * a ) );
 
-        p4X.set( p2X + h2 * ( y2 - y1 ) / d );
-        p4Y.set( p2Y - h2 * ( x2 - x1 ) / d );
+        //p4X.set( p2X + h2 * ( y2 - y1 ) / d );
+        //p4Y.set( p2Y - h2 * ( x2 - x1 ) / d );
+
+        p4X = ( p2X + h2 * ( y2 - y1 ) / d );
+        p4Y = ( p2Y - h2 * ( x2 - x1 ) / d );
 
         return true;
 
@@ -485,7 +494,7 @@ class geometry {
         let iX1 = 0.0, iY1 = 0.0, iX2 = 0.0, iY2 = 0.0;
 
         if ( !TwoCirclesIntersectionPoints (x1, y1, r1, x2, y2, r2,
-                new DoubleRef( iX1 ), new DoubleRef( iY1 ), new DoubleRef( iX2 ), new DoubleRef( iY2 ) ) ) {
+                iX1, iY1, iX2, iY2 ) ) {
             return 0.0; //no overlap
         };
 
@@ -543,7 +552,7 @@ class geometry {
              radius ) {
         //first determine the distance from the center of the circle to
         //the line segment (working in distance squared space)
-        let DistToLineSq = DistToLineSegmentSq( A, B, P );
+        let DistToLineSq = this.DistToLineSegmentSq( A, B, P );
 
         if ( DistToLineSq < radius * radius ) {
             return true;
@@ -564,11 +573,11 @@ class geometry {
              pos,
              radius,
              IntersectionPoint ) {
-        let toBNorm = Vec2DNormalize( sub( B, A ) );
+        let toBNorm = Vector2D.Vec2DNormalize( Vector2D.sub( B, A ) );
 
         //move the circle into the local space defined by the vector B-A with origin
         //at A
-        let LocalPos = PointToLocalSpace( pos, toBNorm, toBNorm.Perp(), A );
+        let LocalPos = Transformation.PointToLocalSpace( pos, toBNorm, toBNorm.Perp(), A );
 
         let ipFound = false;
 
@@ -577,7 +586,7 @@ class geometry {
         //radius is greater than length A-B then the circle cannot intersect the 
         //line segment
         if ( ( LocalPos.x + radius >= 0 )
-                && ( ( LocalPos.x - radius ) * ( LocalPos.x - radius ) <= Vec2DDistanceSq( B, A ) ) ) {
+                && ( ( LocalPos.x - radius ) * ( LocalPos.x - radius ) <= Vector2D.Vec2DDistanceSq( B, A ) ) ) {
             //if the distance from the x axis to the object's position is less
             //than its radius then there is a potential intersection.
             if ( Math.abs( LocalPos.y ) < radius ) {
@@ -596,7 +605,7 @@ class geometry {
 
                 ipFound = true;
 
-                IntersectionPoint.set( add( A, mul( toBNorm, ip ) ) );
+                IntersectionPoint.set( Vector2D.add( A, Vector2D.mul( toBNorm, ip ) ) );
             };
         };
 

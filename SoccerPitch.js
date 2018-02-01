@@ -102,7 +102,7 @@ class SoccerPitch {
         this.m_pPlayingArea = null;
 
         for ( let i = 0; i < this.m_Regions.size(); ++i ) {
-            m_Regions.set(i, null);
+            this.m_Regions[i] = null;
         };
     };
 

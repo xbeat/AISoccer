@@ -35,7 +35,7 @@ class PrecisionTimer {
         //how many ticks per sec do we get
         //QueryPerformanceFrequency((LARGE_INTEGER *) & m_PerfCountFreq);
         //using Date().getTime() it is obviously 1 000 000 milli second per second
-        this.m_PerfCountFreq = 1000;
+        this.m_PerfCountFreq = 100;
 
         this.m_TimeScale = 1.0 / this.m_PerfCountFreq;
 

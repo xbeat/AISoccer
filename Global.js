@@ -20,7 +20,7 @@ let ttos = function( s ){
 
 //----------- Globals
 class Global{};
-Global.receiverRef = new Object();
+Global.objReceiverRef = new Object();
 Global.m_iNextValidID = 0;
 Global.AllPlayers = new Array();
 Global.MessageTypes = {

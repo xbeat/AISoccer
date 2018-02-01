@@ -17,7 +17,7 @@ class SupportAttacker {
         player.Steering().SetTarget( player.Team().GetSupportSpot() );
 
         if ( def( PLAYER_STATE_INFO_ON ) ) {
-            console.log("Player " + player.ID() + " enters support state" );
+            console.log( "Player " + player.ID() + " enters support state" );
         };
     };
 
@@ -30,7 +30,7 @@ class SupportAttacker {
 
         //if the best supporting spot changes, change the steering target
         if ( player.Team().GetSupportSpot() != player.Steering().Target() ) {
-            player.Steering().SetTarget(player.Team().GetSupportSpot() );
+            player.Steering().SetTarget( player.Team().GetSupportSpot() );
 
             player.Steering().ArriveOn();
         };
@@ -51,11 +51,11 @@ class SupportAttacker {
             //the player should keep his eyes on the ball!
             player.TrackBall();
 
-            player.SetVelocity( new Vector2D(0, 0) );
+            player.SetVelocity( new Vector2D( 0, 0 ) );
 
             //if not threatened by another player request a pass
             if ( !player.isThreatened() ) {
-                player.Team().RequestPass(player);
+                player.Team().RequestPass( player );
             };
         };
     };

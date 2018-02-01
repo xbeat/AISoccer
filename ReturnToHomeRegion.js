@@ -19,7 +19,7 @@ class ReturnToHomeRegion  {
         }
 
         if ( def( PLAYER_STATE_INFO_ON ) ) {
-            console.log("Player " + player.ID() + " enters ReturnToHome state" );
+            console.log( "Player " + player.ID() + " enters ReturnToHome state" );
         };
     };
 
@@ -31,7 +31,7 @@ class ReturnToHomeRegion  {
             if ( player.isClosestTeamMemberToBall()
                     && ( player.Team().Receiver() == null )
                     && !player.Pitch().GoalKeeperHasBall() ) {
-                player.GetFSM().ChangeState(ChaseBall.Instance() );
+                player.GetFSM().ChangeState( ChaseBall.Instance() );
 
                 return;
             };

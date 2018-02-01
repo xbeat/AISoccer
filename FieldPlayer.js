@@ -140,7 +140,7 @@ class FieldPlayer extends PlayerBase {
         gdi.BrownBrush();
         if ( Prm.bHighlightIfThreatened && ( this.Team().ControllingPlayer() == this ) && this.isThreatened() ) {
             gdi.YellowBrush();
-        }
+        };
         gdi.Circle( this.Pos(), 6 );
 
 
@@ -161,7 +161,7 @@ class FieldPlayer extends PlayerBase {
             gdi.RedBrush();
             gdi.Circle( this.Steering().Target(), 3 );
             gdi.TextColor( 0, 170, 0 );
-            gdi.TextAtPos( this.Steering().Target(), ttos( this.ID() ) );
+            gdi.TextAtPos( this.Steering().Target(), ttos( this.ID() ) + " - " +  new String( this.m_pStateMachine.GetNameOfCurrentState() ) );
         };
     };
 

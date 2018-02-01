@@ -17,8 +17,8 @@ class EntityManager {
     //--------------------------- Instance ----------------------------------------
     //   this class is a singleton
     //-----------------------------------------------------------------------------
-    Instance() {
-        return this;
+    static Instance() {
+        return new EntityManager();
     };
 
     /**

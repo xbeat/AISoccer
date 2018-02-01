@@ -314,26 +314,28 @@ class SoccerTeam {
         //define(SHOW_TEAM_STATE);
         if ( def( SHOW_TEAM_STATE ) ) {
             if ( this.Color() == this.red ) {
-                gdi.TextColor( 255, 255, 255 );
+                gdi.TextColor( 255, 0, 0 );
 
-                if ( this.m_pStateMachine.CurrentState() == Attacking.Instance() ) {
-                    gdi.TextAtPos( 160, 20, "Attacking" );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == Attacking.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, 15, "Attacking" );
                 };
-                if ( this.m_pStateMachine.CurrentState() == Defending.Instance() ) {
-                    gdi.TextAtPos( 160, 20, "Defending" );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == Defending.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, 15, "Defending" );
                 };
-                if ( this.m_pStateMachine.CurrentState() == PrepareForKickOff.Instance() ) {
-                    gdi.TextAtPos( 160, 20, "Kickoff" );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == PrepareForKickOff.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, 15, "Kickoff" );
                 };
             } else {
-                if ( this.m_pStateMachine.CurrentState() == Attacking.Instance() ) {
-                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 40, "Attacking" );
+
+                gdi.TextColor( 0, 0, 255 );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == Attacking.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 10, "Attacking" );
                 };
-                if ( this.m_pStateMachine.CurrentState() == Defending.Instance() ) {
-                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 40, "Defending" );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == Defending.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 10, "Defending" );
                 };
-                if ( this.m_pStateMachine.CurrentState() == PrepareForKickOff.Instance() ) {
-                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 40, "Kickoff" );
+                if ( this.m_pStateMachine.CurrentState().constructor.name == PrepareForKickOff.Instance().constructor.name ) {
+                    gdi.TextAtPos( 160, this.Pitch().cyClient() - 10, "Kickoff" );
                 };
             };
         };

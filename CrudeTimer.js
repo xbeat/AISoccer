@@ -18,7 +18,7 @@ class CrudeTimer {
     };
 
     Instance() {
-        return Clock;
+        return new CrudeTimer();
     };
 
     //returns how much time has elapsed since the timer was started

@@ -55,7 +55,7 @@
 			  border-radius: 0 4px 4px 0;
 			}
 
-			.form{
+			.formParams{
 				position: absolute;
 				top: 440px;
 				left: 0px;
@@ -84,14 +84,30 @@
 				background-color: #22638e;
 			}
 
+			.formLogs{
+				position: absolute;
+				top:440px;
+				left: 240px;			
+			}
+
+			#myLog{
+				position: absolute;
+				top:440px;
+				left: 520px;
+				overflow-y: scroll; 
+				height: 400px;
+				font-family: "Monospace", sans-serif;
+				font-size: 12px;
+			}
+
 		</style>
 	</head>
 	<body>
-		<form class="form">
+		<form class="formParams">
 			<button type="button" onClick="pause()">Stop RAF</button>
 
 		    <div class="switch-field">
-		      <div class="switch-title">Pause Raf</div>
+		      <div class="switch-title">Raf</div>
 		      <input type="radio" id="switch_raf_on" onclick = "EXECUTERAF = true" name="switch_raf" value="on" checked/>
 		      <label for="switch_raf_on">On</label>
 		      <input type="radio" id="switch_raf_off" onclick = "EXECUTERAF = false" name="switch_raf" value="off" />
@@ -107,41 +123,92 @@
 		    </div>
 		    <div class="switch-field">
 		      <div class="switch-title">Show States</div>
-		      <input type="radio" id="switch_states_on" onclick = "Prm.bStates = true" onclick="" name="switch_states" value="on" checked/>
+		      <input type="radio" id="switch_states_on" onclick = "Prm.bStates = true" name="switch_states" value="on" checked/>
 		      <label for="switch_states_on">On</label>
-		      <input type="radio" id="switch_states_off" onclick = "Prm.bStates = false" onclick="" name="switch_states" value="off" />
+		      <input type="radio" id="switch_states_off" onclick = "Prm.bStates = false" name="switch_states" value="off" />
 		      <label for="switch_states_off">Off</label>
 		    </div>
 		    <div class="switch-field">
 		      <div class="switch-title">Show Regions</div>
-		      <input type="radio" id="switch_regions_on" onclick = "Prm.bRegions = true" onclick="" name="switch_regions" value="on" checked/>
+		      <input type="radio" id="switch_regions_on" onclick = "Prm.bRegions = true" name="switch_regions" value="on" checked/>
 		      <label for="switch_regions_on">On</label>
 		      <input type="radio" id="switch_regions_off" onclick = "Prm.bRegions = false" name="switch_regions" value="off" />
 		      <label for="switch_regions_off">Off</label>
 		    </div>
 		    <div class="switch-field">
 		      <div class="switch-title">Show Support Spots</div>
-		      <input type="radio" id="switch_support_on" onclick = "Prm.bSupportSpots = true" onclick="" name="switch_support" value="on" checked/>
+		      <input type="radio" id="switch_support_on" onclick = "Prm.bSupportSpots = true" name="switch_support" value="on" checked/>
 		      <label for="switch_support_on">On</label>
 		      <input type="radio" id="switch_support_off" onclick = "Prm.bSupportSpots = false" name="switch_support" value="off" />
 		      <label for="switch_support_off">Off</label>
 		    </div>
 		    <div class="switch-field">
 		      <div class="switch-title">Show Targets</div>
-		      <input type="radio" id="switch_targets_on" onclick = "Prm.bViewTargets = true" onclick="" name="switch_targets" value="on" checked/>
+		      <input type="radio" id="switch_targets_on" onclick = "Prm.bViewTargets = true" name="switch_targets" value="on" checked/>
 		      <label for="switch_targets_on">On</label>
 		      <input type="radio" id="switch_targets_off" onclick = "Prm.bViewTargets = false" name="switch_targets" value="off" />
 		      <label for="switch_targets_off">Off</label>
 		    </div>
 		    <div class="switch-field">
 		      <div class="switch-title">Highlight if Threatened</div>
-		      <input type="radio" id="switch_threatened_on" onclick = "Prm.bHighlightIfThreatened = true" onclick="" name="switch_threatened" value="on" checked/>
+		      <input type="radio" id="switch_threatened_on" onclick = "Prm.bHighlightIfThreatened = true" name="switch_threatened" value="on" checked/>
 		      <label for="switch_threatened_on">On</label>
 		      <input type="radio" id="switch_threatened_off" onclick = "Prm.bHighlightIfThreatened = false" name="switch_threatened" value="off" />
 		      <label for="switch_threatened_off">Off</label>
 		    </div>
 
 		</form>
+
+		<form class="formLogs">
+
+			<button type="button" onClick="document.getElementById('myLog').innerHTML = '' ">Clear Log</button>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Team State</div>
+		      <input type="radio" id="switch_teamstate_on" onclick = "SHOW_TEAM_STATE = true" name="switch_teamstate" value="on" />
+		      <label for="switch_teamstate_on">On</label>
+		      <input type="radio" id="switch_teamstate_off" onclick = "SHOW_TEAM_STATE = false" name="switch_teamstate" value="off" checked/>
+		      <label for="switch_teamstate_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Supporting Players Target</div>
+		      <input type="radio" id="switch_supporting_on" onclick = "SHOW_SUPPORTING_PLAYERS_TARGET = true" name="switch_supporting" value="on" />
+		      <label for="switch_supporting_on">On</label>
+		      <input type="radio" id="switch_supporting_off" onclick = "SHOW_SUPPORTING_PLAYERS_TARGET = false" name="switch_supporting" value="off" checked/>
+		      <label for="switch_supporting_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Messaging Info</div>
+		      <input type="radio" id="switch_messaging_on" onclick = "SHOW_MESSAGING_INFO = true" name="switch_messaging" value="on" />
+		      <label for="switch_messaging_on">On</label>
+		      <input type="radio" id="switch_messaging_off" onclick = "SHOW_MESSAGING_INFO = false" name="switch_messaging" value="off" checked/>
+		      <label for="switch_messaging_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Debug Team State</div>
+		      <input type="radio" id="switch_debugteam_on" onclick = "DEBUG_TEAM_STATES = true" name="switch_debugteam" value="on" />
+		      <label for="switch_debugteam_on">On</label>
+		      <input type="radio" id="switch_debugteam_off" onclick = "DEBUG_TEAM_STATES = false" name="switch_debugteam" value="off" checked/>
+		      <label for="switch_debugteam_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Goaly State</div>
+		      <input type="radio" id="switch_goaly_on" onclick = "GOALY_STATE_INFO_ON = true" name="switch_goaly" value="on" />
+		      <label for="switch_goaly_on">On</label>
+		      <input type="radio" id="switch_goaly_off" onclick = "GOALY_STATE_INFO_ON = false" name="switch_goaly" value="off" checked/>
+		      <label for="switch_goaly_off">Off</label>
+		    </div>
+		    <div class="switch-field">
+		      <div class="switch-title">Log Player State</div>
+		      <input type="radio" id="switch_player_on" onclick = "PLAYER_STATE_INFO_ON = true" name="switch_player" value="on" />
+		      <label for="switch_player_on">On</label>
+		      <input type="radio" id="switch_player_off" onclick = "PLAYER_STATE_INFO_ON = false" name="switch_player" value="off" checked/>
+		      <label for="switch_player_off">Off</label>
+		    </div>
+
+		</form>		
+
+		<p id="myLog"></p>
+
 	</body>
 </html>
 
@@ -154,10 +221,20 @@
 	var selects = document.getElementsByClassName( "onoffbtn" );
 	for( let i = 0, il = selects.length; i < il; i++ ){
 		selects[i].addEventListener( "click", function(){
-			if ( this.classList  )
-			this.classList.toggle("active");
+			if ( this.classList )
+			this.classList.toggle( "active" );
 		});
 	};
+
+	window.console = {
+		log: function( str ){
+			var node = document.createElement( "div" );
+			node.appendChild( document.createTextNode( str ) );
+			document.getElementById("myLog").appendChild( node );
+			document.getElementById("myLog").scrollTop = document.getElementById("myLog").scrollHeight;
+		}
+	};
+
 </script>
 
 <!-- Globals -->
@@ -273,7 +350,6 @@
     let EXECUTERAF = true;
     //start the timer
     timer.Start();
-
 
 	(function step() {
    		RAF = requestAnimationFrame( step );

@@ -13,7 +13,7 @@ class FrameCounter {
         throw new Error ( "FrameCounter CloneNotSupportedException() ");
     };
 
-    Instance() {
+    static Instance() {
         return new FrameCounter();
     };
 

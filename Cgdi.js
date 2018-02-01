@@ -141,8 +141,8 @@ class Cgdi {
         super.finalize();
     };
 
-    Instance() {
-        return this;
+    static Instance() {
+        return new Cgdi();
     };
 
     BlackPen() {

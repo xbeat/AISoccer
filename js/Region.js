@@ -35,11 +35,11 @@ class Region {
 
     Render( ShowID ) {
         gdi.HollowBrush();
-        gdi.GreenPen();
+        gdi.LightGreyPen();
         gdi.Rect( this.m_dLeft, this.m_dTop, this.m_dRight, this.m_dBottom );
 
         if ( ShowID ) {
-            gdi.TextColor( 0, 170, 0 );// light green
+            gdi.TextColor( 250, 250, 250 );
             gdi.TextAtPos( this.Center(), ttos( this.ID() ) );
         };
     };

@@ -2,106 +2,7 @@
 	<link rel="shortcut icon" href="">
 	<head>
 		<title>AI xbe.at 1.0.1</title>
-		<style>
-			.switch-field {
-				font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
-				padding: 2px;
-				margin-left: 20px;
-				overflow: hidden;
-			}
-
-			.switch-title {
-				margin-bottom: 6px;
-			}
-
-			.switch-field input {
-			    position: absolute !important;
-			    clip: rect(0, 0, 0, 0);
-			    height: 1px;
-			    width: 1px;
-			    border: 0;
-			    overflow: hidden;
-			}
-
-			.switch-field label {
-			  float: left;
-			  display: inline-block;
-			  width: 60px;
-			  background-color: #e4e4e4;
-			  color: rgba(0, 0, 0, 0.6);
-			  font-size: 14px;
-			  font-weight: normal;
-			  text-align: center;
-			  text-shadow: none;
-			  padding: 6px 14px;
-			  border: 1px solid rgba(0, 0, 0, 0.2);
-			  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-			  transition: all 0.1s ease-in-out;
-			}
-
-			.switch-field label:hover {
-				cursor: pointer;
-			}
-
-			.switch-field input:checked + label {
-			  background-color: #A5DC86;
-			  box-shadow: none;
-			}
-
-			.switch-field label:first-of-type {
-			  border-radius: 4px 0 0 4px;
-			}
-
-			.switch-field label:last-of-type {
-			  border-radius: 0 4px 4px 0;
-			}
-
-			.formParams{
-				position: absolute;
-				top: 440px;
-				left: 0px;
-			}
-
-			button {
-				font-size: 0.9em;
-				font-familly: "Open Sans", sans-serif;
-				color: white;
-				background-color: #3498db;
-				border: none;
-				outline: none;
-				border-radius: 0.3em;
-				padding: 0.7em 0.8em;
-				margin: 0.3em;
-				cursor: pointer;
-				width:150px;
-				z-index:1;
-			}
-
-			button:hover {
-				background-color: #2980b9;
-			}
-
-			button:active {
-				background-color: #22638e;
-			}
-
-			.formLogs{
-				position: absolute;
-				top:440px;
-				left: 240px;			
-			}
-
-			#myLog{
-				position: absolute;
-				top:440px;
-				left: 520px;
-				overflow-y: scroll; 
-				height: 400px;
-				font-family: "Monospace", sans-serif;
-				font-size: 12px;
-			}
-
-		</style>
+		 <link rel="stylesheet" href="css/AI.css">
 	</head>
 	<body>
 		<form class="formParams">
@@ -239,83 +140,83 @@
 </script>
 
 <!-- Globals -->
-<script type="text/javascript" src="Global.js"></script>
-<script type="text/javascript" src="DEFINE.js"></script>
+<script type="text/javascript" src="js/Global.js"></script>
+<script type="text/javascript" src="js/DEFINE.js"></script>
 
 <!-- Class extended -->
-<script type="text/javascript" src="BaseGameEntity.js"></script>
-<script type="text/javascript" src="MovingEntity.js"></script>
-<script type="text/javascript" src="PlayerBase.js"></script>
+<script type="text/javascript" src="js/BaseGameEntity.js"></script>
+<script type="text/javascript" src="js/MovingEntity.js"></script>
+<script type="text/javascript" src="js/PlayerBase.js"></script>
 
 <!-- SimpleSoccer -->
-<script type="text/javascript" src="FieldPlayer.js"></script>
-<script type="text/javascript" src="Goal.js"></script>
-<script type="text/javascript" src="GoalKeeper.js"></script>
-<script type="text/javascript" src="ParamLoader.js"></script>
-<script type="text/javascript" src="SoccerBall.js"></script>
-<script type="text/javascript" src="SoccerPitch.js"></script>
-<script type="text/javascript" src="SoccerTeam.js"></script>
-<script type="text/javascript" src="SteeringBehaviors.js"></script>
-<script type="text/javascript" src="SupportSpotCalculator.js"></script>
+<script type="text/javascript" src="js/FieldPlayer.js"></script>
+<script type="text/javascript" src="js/Goal.js"></script>
+<script type="text/javascript" src="js/GoalKeeper.js"></script>
+<script type="text/javascript" src="js/ParamLoader.js"></script>
+<script type="text/javascript" src="js/SoccerBall.js"></script>
+<script type="text/javascript" src="js/SoccerPitch.js"></script>
+<script type="text/javascript" src="js/SoccerTeam.js"></script>
+<script type="text/javascript" src="js/SteeringBehaviors.js"></script>
+<script type="text/javascript" src="js/SupportSpotCalculator.js"></script>
 
 <!-- SimpleSoccer.FieldPlayerStates -->
-<script type="text/javascript" src="ChaseBall.js"></script>
-<script type="text/javascript" src="Dribble.js"></script>
-<script type="text/javascript" src="GlobalPlayerState.js"></script>
-<script type="text/javascript" src="KickBall.js"></script>
-<script type="text/javascript" src="ReceiveBall.js"></script>
-<script type="text/javascript" src="ReturnToHomeRegion.js"></script>
-<script type="text/javascript" src="SupportAttacker.js"></script>
-<script type="text/javascript" src="Wait.js"></script>
+<script type="text/javascript" src="js/ChaseBall.js"></script>
+<script type="text/javascript" src="js/Dribble.js"></script>
+<script type="text/javascript" src="js/GlobalPlayerState.js"></script>
+<script type="text/javascript" src="js/KickBall.js"></script>
+<script type="text/javascript" src="js/ReceiveBall.js"></script>
+<script type="text/javascript" src="js/ReturnToHomeRegion.js"></script>
+<script type="text/javascript" src="js/SupportAttacker.js"></script>
+<script type="text/javascript" src="js/Wait.js"></script>
 
 <!-- SimpleSoccer.GoalKeeperStates -->
-<script type="text/javascript" src="GlobalKeeperState.js"></script>
-<script type="text/javascript" src="InterceptBall.js"></script>
-<script type="text/javascript" src="PutBallBackInPlay.js"></script>
-<script type="text/javascript" src="ReturnHome.js"></script>
-<script type="text/javascript" src="TendGoal.js"></script>
+<script type="text/javascript" src="js/GlobalKeeperState.js"></script>
+<script type="text/javascript" src="js/InterceptBall.js"></script>
+<script type="text/javascript" src="js/PutBallBackInPlay.js"></script>
+<script type="text/javascript" src="js/ReturnHome.js"></script>
+<script type="text/javascript" src="js/TendGoal.js"></script>
 
 <!-- SimpleSoccer.TeamStates -->
-<script type="text/javascript" src="Attacking.js"></script>
-<script type="text/javascript" src="Defending.js"></script>
-<script type="text/javascript" src="PrepareForKickOff.js"></script>
-<script type="text/javascript" src="TeamStates.js"></script>
+<script type="text/javascript" src="js/Attacking.js"></script>
+<script type="text/javascript" src="js/Defending.js"></script>
+<script type="text/javascript" src="js/PrepareForKickOff.js"></script>
+<script type="text/javascript" src="js/TeamStates.js"></script>
 
 <!-- Common.D2 -->
-<script type="text/javascript" src="C2DMatrix.js"></script>
-<script type="text/javascript" src="InvertedAABBox2D.js"></script>
-<script type="text/javascript" src="Transformation.js"></script>
-<script type="text/javascript" src="Vector2D.js"></script>
-<script type="text/javascript" src="Wall2D.js"></script>
-<script type="text/javascript" src="Geometry.js"></script>
+<script type="text/javascript" src="js/C2DMatrix.js"></script>
+<script type="text/javascript" src="js/InvertedAABBox2D.js"></script>
+<script type="text/javascript" src="js/Transformation.js"></script>
+<script type="text/javascript" src="js/Vector2D.js"></script>
+<script type="text/javascript" src="js/Wall2D.js"></script>
+<script type="text/javascript" src="js/Geometry.js"></script>
 
 <!-- Common.FSM -->
-<script type="text/javascript" src="StateMachine.js"></script>
+<script type="text/javascript" src="js/StateMachine.js"></script>
 
 <!-- Common.Game -->
-<script type="text/javascript" src="EntityFunctionTemplates.js"></script>
-<script type="text/javascript" src="EntityManager.js"></script>
-<script type="text/javascript" src="Region.js"></script>
+<script type="text/javascript" src="js/EntityFunctionTemplates.js"></script>
+<script type="text/javascript" src="js/EntityManager.js"></script>
+<script type="text/javascript" src="js/Region.js"></script>
 
 <!-- Common.Messaging -->
-<script type="text/javascript" src="TreeSet.js"></script>
-<script type="text/javascript" src="MessageDispatcher.js"></script>
-<script type="text/javascript" src="Telegram.js"></script>
+<script type="text/javascript" src="js/TreeSet.js"></script>
+<script type="text/javascript" src="js/MessageDispatcher.js"></script>
+<script type="text/javascript" src="js/Telegram.js"></script>
 
 <!-- Common.Time -->
-<script type="text/javascript" src="CrudeTimer.js"></script>
-<script type="text/javascript" src="PrecisionTimer.js"></script>
-<script type="text/javascript" src="Regulator.js"></script>
+<script type="text/javascript" src="js/CrudeTimer.js"></script>
+<script type="text/javascript" src="js/PrecisionTimer.js"></script>
+<script type="text/javascript" src="js/Regulator.js"></script>
 
 <!-- Common.Misc -->
-<script type="text/javascript" src="Cgdi.js"></script>
-<script type="text/javascript" src="CppToJava.js"></script>
-<script type="text/javascript" src="FrameCounter.js"></script>
-<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript" src="js/Cgdi.js"></script>
+<script type="text/javascript" src="js/CppToJava.js"></script>
+<script type="text/javascript" src="js/FrameCounter.js"></script>
+<script type="text/javascript" src="js/utils.js"></script>
 
 <script>
-	var cxClient = 700;
-	var cyClient = 400;
+	var cxClient = 460;//600
+	var cyClient = 290;//380
 
 	let Color = {
 		WHITE: "255, 255, 255",
@@ -324,10 +225,17 @@
 
 	let canvas = document.createElement( "canvas" );
 	document.body.appendChild( canvas );
-	canvas.style.position = "absolute";
-	canvas.style.top = "20px";
-	canvas.style.left = "20px";
-	canvas.style.zIndex = "-97";
+	//canvas.style.position = "absolute";
+	//canvas.style.top = "20px";
+	//canvas.style.left = "20px";
+	//canvas.style.zIndex = "-97";
+
+    canvas.style.position = "fixed";
+    canvas.style.bottom = "10px";
+    canvas.style.left = "50%";
+    canvas.style.margin = "0 auto";
+    canvas.style.zIndex = "-97";
+    canvas.style.transform = "translate( -50%, 0 )";
 
 	canvas.width = cxClient;
 	canvas.height = cyClient;
@@ -337,7 +245,7 @@
 	//---------------- init -----------------
     gdi.StartDrawing( context );
     
-    gdi.fillRect( Color.WHITE, 0, 0, canvas.width, canvas.height );
+    //gdi.fillRect( Color.WHITE, 0, 0, canvas.width, canvas.height );
 
 	var g_SoccerPitch = new SoccerPitch( cxClient, cyClient );
 	

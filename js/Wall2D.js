@@ -7,7 +7,6 @@
 
 class Wall2D {
 
-
     CalculateNormal() {
         let temp = Vector2D.Vec2DNormalize( Vector2D.sub( this.m_vB, this.m_vA ) );
 

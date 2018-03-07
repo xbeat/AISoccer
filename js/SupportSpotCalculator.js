@@ -68,7 +68,7 @@ class SupportSpotCalculator {
      */
     Render() {
         gdi.HollowBrush();
-        gdi.GreyPen();
+        gdi.PurplePen();
 
         for ( let spt = 0; spt < this.m_Spots.length; ++spt ) {
             gdi.Circle( this.m_Spots[ spt ].m_vPos, this.m_Spots[ spt ].m_dScore );

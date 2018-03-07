@@ -135,7 +135,6 @@ class SoccerBall extends MovingEntity {
             this.m_vVelocity.add( Vector2D.mul( Vector2D.Vec2DNormalize( this.m_vVelocity ), Prm.Friction ) );
             this.m_vPosition.add( this.m_vVelocity );
 
-
             //update heading
             this.m_vHeading = Vector2D.Vec2DNormalize( this.m_vVelocity );
         };

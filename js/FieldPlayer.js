@@ -146,21 +146,21 @@ class FieldPlayer extends PlayerBase {
 
         //render the state
         if ( Prm.bStates ) {
-            gdi.TextColor( 0, 170, 0 );
+            gdi.TextColor( 250, 250, 250 );
             gdi.TextAtPos( this.m_vPosition.x, this.m_vPosition.y - 25,
                     new String( this.m_pStateMachine.GetNameOfCurrentState() ) );
         };
 
         //show IDs
         if ( Prm.bIDs ) {
-            gdi.TextColor( 0, 170, 0 );
+            gdi.TextColor( 250, 250, 250 );
             gdi.TextAtPos( this.Pos().x - 20, this.Pos().y - 25, ttos( this.ID() ) );
         };
 
         if ( Prm.bViewTargets ) {
             gdi.RedBrush();
             gdi.Circle( this.Steering().Target(), 3 );
-            gdi.TextColor( 0, 170, 0 );
+            gdi.TextColor( 250, 250, 250 );
             gdi.TextAtPos( this.Steering().Target(), ttos( this.ID() ) + " - " +  new String( this.m_pStateMachine.GetNameOfCurrentState() ) );
         };
     };

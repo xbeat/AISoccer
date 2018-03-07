@@ -30,7 +30,10 @@ class Cgdi {
         return NumColors;
     };
 
-
+    clearRect( left, top, width, height ){
+        this.m_hdc.clearRect( left, top, width, height );    
+    };
+        
     fillRect( c, left, top, width, height ) {
         let old = this.m_hdc.fillStyle;
 

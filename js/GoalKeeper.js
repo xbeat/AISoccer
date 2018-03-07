@@ -108,13 +108,13 @@ class GoalKeeper extends PlayerBase {
 
         //draw the ID
         if ( Prm.bIDs ) {
-            gdi.TextColor( 0, 170, 0 );
+            gdi.TextColor( 250, 250, 250 );
             gdi.TextAtPos( this.Pos().x - 20, this.Pos().y - 25, ttos( this.ID() ) );
         };
 
         //draw the state
         if ( Prm.bStates ) {
-            gdi.TextColor( 0, 170, 0 );
+           gdi.TextColor( 250, 250, 250 );
             gdi.TransparentText();
             gdi.TextAtPos( this.m_vPosition.x, this.m_vPosition.y - 25,
                     new String( this.m_pStateMachine.GetNameOfCurrentState() ) );
